@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MainScreenController: UIViewController {
 
     let cellId = "cellId"
-    let fetchObjects = FetchObjects()
+    let fetchObjects = FetchObjectsFromUrl()
     let backgroundView = MainScreenBackgroundView()
     let searchView = MainScreenSearchView()
     let collectionVContainer = UIView()
@@ -27,13 +28,27 @@ class MainScreenController: UIViewController {
         return cv
     }()
     
-    let test = ["Hallelujah", "Welcome to the Jungle Jungle Jungle Jungle", "Enter Sandman", "Schizm", "Florence and the Machine"]
+    var trackList : RealmSwift.Results<RealmTrack>?
+    var tracks = [Track]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(MainScreenCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-        fetchObjects.fetchObject()
         setupViews()
+        self.tracks = self.fetchObjects.fetchObject()
+        print(tracks.count)
+        let realmTracks = TracksViewModel.sharedInstance.assiningObjectToRealmObject(tracks)
+        for track in realmTracks {
+            CacheManager.sharedInstance.addData(object: track)
+        }
+        self.trackList = CacheManager.sharedInstance.getDataFromDB()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     private func setupViews() {
@@ -57,12 +72,13 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return test.count
+        return trackList?.count ?? 0
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MainScreenCollectionViewCell
-        cell.titleLbl.text = test[indexPath.item]
+        cell.titleLbl.text = trackList?[indexPath.item].artistName
         return cell
     }
     
