@@ -7,14 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42970B75A75D6C22F5D570BC /* Pods_iTunesSearchSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE4550B87E15E01B96D0B38 /* Pods_iTunesSearchSampleTests.framework */; };
+		43316D9D1BF55CC63706CD66 /* Pods_iTunesSearchSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDC64521A7D5513CA47818B /* Pods_iTunesSearchSampleUITests.framework */; };
+		660E1609A9D4D162ADF3D8ED /* Pods_iTunesSearchSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74285BFFE9003801EDFE6ED6 /* Pods_iTunesSearchSample.framework */; };
 		E0155F7421CDD6910041A96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F7321CDD6910041A96C /* AppDelegate.swift */; };
-		E0155F7621CDD6910041A96C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F7521CDD6910041A96C /* ViewController.swift */; };
+		E0155F7621CDD6910041A96C /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F7521CDD6910041A96C /* MainScreenController.swift */; };
 		E0155F7921CDD6910041A96C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0155F7721CDD6910041A96C /* Main.storyboard */; };
 		E0155F7C21CDD6910041A96C /* iTunesSearchSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E0155F7A21CDD6910041A96C /* iTunesSearchSample.xcdatamodeld */; };
 		E0155F7E21CDD6920041A96C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0155F7D21CDD6920041A96C /* Assets.xcassets */; };
 		E0155F8121CDD6920041A96C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0155F7F21CDD6920041A96C /* LaunchScreen.storyboard */; };
 		E0155F8C21CDD6920041A96C /* iTunesSearchSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F8B21CDD6920041A96C /* iTunesSearchSampleTests.swift */; };
 		E0155F9721CDD6920041A96C /* iTunesSearchSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F9621CDD6920041A96C /* iTunesSearchSampleUITests.swift */; };
+		E0155FA621CDD9430041A96C /* FetchedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FA521CDD9430041A96C /* FetchedObjects.swift */; };
+		E0155FA721CDD9430041A96C /* FetchedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FA521CDD9430041A96C /* FetchedObjects.swift */; };
+		E0155FA821CDD9430041A96C /* FetchedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FA521CDD9430041A96C /* FetchedObjects.swift */; };
+		E0155FAC21CDEAC60041A96C /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FAB21CDEAC60041A96C /* Track.swift */; };
+		E0155FAD21CDEAC60041A96C /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FAB21CDEAC60041A96C /* Track.swift */; };
+		E0155FAE21CDEAC60041A96C /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FAB21CDEAC60041A96C /* Track.swift */; };
+		E0155FB921CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FB821CE094F0041A96C /* MainScreenCollectionViewCell.swift */; };
+		E0155FBA21CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FB821CE094F0041A96C /* MainScreenCollectionViewCell.swift */; };
+		E0155FBB21CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FB821CE094F0041A96C /* MainScreenCollectionViewCell.swift */; };
+		E0155FBE21CE33270041A96C /* MainScreenSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FBD21CE33270041A96C /* MainScreenSearchView.swift */; };
+		E0155FBF21CE33270041A96C /* MainScreenSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FBD21CE33270041A96C /* MainScreenSearchView.swift */; };
+		E0155FC021CE33270041A96C /* MainScreenSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FBD21CE33270041A96C /* MainScreenSearchView.swift */; };
+		E0155FC321CE34C80041A96C /* ConstraintHelpers++.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FC221CE34C80041A96C /* ConstraintHelpers++.swift */; };
+		E0155FC421CE34C80041A96C /* ConstraintHelpers++.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FC221CE34C80041A96C /* ConstraintHelpers++.swift */; };
+		E0155FC521CE34C80041A96C /* ConstraintHelpers++.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FC221CE34C80041A96C /* ConstraintHelpers++.swift */; };
+		E0155FC721CE34E90041A96C /* DeviceHelpers++.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FC621CE34E90041A96C /* DeviceHelpers++.swift */; };
+		E0155FC821CE34E90041A96C /* DeviceHelpers++.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FC621CE34E90041A96C /* DeviceHelpers++.swift */; };
+		E0155FC921CE34E90041A96C /* DeviceHelpers++.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FC621CE34E90041A96C /* DeviceHelpers++.swift */; };
+		E0155FCB21CE35D60041A96C /* MainScreenBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FCA21CE35D60041A96C /* MainScreenBackgroundView.swift */; };
+		E0155FCC21CE35D60041A96C /* MainScreenBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FCA21CE35D60041A96C /* MainScreenBackgroundView.swift */; };
+		E0155FCD21CE35D60041A96C /* MainScreenBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FCA21CE35D60041A96C /* MainScreenBackgroundView.swift */; };
+		E0155FD221CE554F0041A96C /* TracksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FD121CE554F0041A96C /* TracksViewModel.swift */; };
+		E0155FD421CEBAAB0041A96C /* RealmTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FD321CEBAAB0041A96C /* RealmTrack.swift */; };
+		E0155FD521CEBAAB0041A96C /* RealmTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FD321CEBAAB0041A96C /* RealmTrack.swift */; };
+		E0155FD621CEBAAB0041A96C /* RealmTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FD321CEBAAB0041A96C /* RealmTrack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +63,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08786CF788AC44DCA32BEE72 /* Pods-iTunesSearchSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchSampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchSampleTests/Pods-iTunesSearchSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3AE4550B87E15E01B96D0B38 /* Pods_iTunesSearchSampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunesSearchSampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74285BFFE9003801EDFE6ED6 /* Pods_iTunesSearchSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunesSearchSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CAB0B95F23AC46CBBE56D84 /* Pods-iTunesSearchSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchSampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchSampleTests/Pods-iTunesSearchSampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		952D4BBF8E4613CC62A1FF96 /* Pods-iTunesSearchSampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchSampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchSampleUITests/Pods-iTunesSearchSampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		980691782194E4CBBBFA2722 /* Pods-iTunesSearchSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchSampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchSampleUITests/Pods-iTunesSearchSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A659FF879D7F8A6AC24B7CA3 /* Pods-iTunesSearchSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchSample/Pods-iTunesSearchSample.release.xcconfig"; sourceTree = "<group>"; };
+		DCDF8A00815DB2103347EF80 /* Pods-iTunesSearchSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchSample/Pods-iTunesSearchSample.debug.xcconfig"; sourceTree = "<group>"; };
+		DDDC64521A7D5513CA47818B /* Pods_iTunesSearchSampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunesSearchSampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0155F7021CDD6910041A96C /* iTunesSearchSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearchSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0155F7321CDD6910041A96C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E0155F7521CDD6910041A96C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E0155F7521CDD6910041A96C /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		E0155F7821CDD6910041A96C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0155F7B21CDD6910041A96C /* iTunesSearchSample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iTunesSearchSample.xcdatamodel; sourceTree = "<group>"; };
 		E0155F7D21CDD6920041A96C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +86,15 @@
 		E0155F9221CDD6920041A96C /* iTunesSearchSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesSearchSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0155F9621CDD6920041A96C /* iTunesSearchSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearchSampleUITests.swift; sourceTree = "<group>"; };
 		E0155F9821CDD6920041A96C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0155FA521CDD9430041A96C /* FetchedObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedObjects.swift; sourceTree = "<group>"; };
+		E0155FAB21CDEAC60041A96C /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		E0155FB821CE094F0041A96C /* MainScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionViewCell.swift; sourceTree = "<group>"; };
+		E0155FBD21CE33270041A96C /* MainScreenSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenSearchView.swift; sourceTree = "<group>"; };
+		E0155FC221CE34C80041A96C /* ConstraintHelpers++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConstraintHelpers++.swift"; sourceTree = "<group>"; };
+		E0155FC621CE34E90041A96C /* DeviceHelpers++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeviceHelpers++.swift"; sourceTree = "<group>"; };
+		E0155FCA21CE35D60041A96C /* MainScreenBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenBackgroundView.swift; sourceTree = "<group>"; };
+		E0155FD121CE554F0041A96C /* TracksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksViewModel.swift; sourceTree = "<group>"; };
+		E0155FD321CEBAAB0041A96C /* RealmTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTrack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				660E1609A9D4D162ADF3D8ED /* Pods_iTunesSearchSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42970B75A75D6C22F5D570BC /* Pods_iTunesSearchSampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +118,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43316D9D1BF55CC63706CD66 /* Pods_iTunesSearchSampleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C45DADBCCC74DBAB9AE122B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DCDF8A00815DB2103347EF80 /* Pods-iTunesSearchSample.debug.xcconfig */,
+				A659FF879D7F8A6AC24B7CA3 /* Pods-iTunesSearchSample.release.xcconfig */,
+				08786CF788AC44DCA32BEE72 /* Pods-iTunesSearchSampleTests.debug.xcconfig */,
+				7CAB0B95F23AC46CBBE56D84 /* Pods-iTunesSearchSampleTests.release.xcconfig */,
+				952D4BBF8E4613CC62A1FF96 /* Pods-iTunesSearchSampleUITests.debug.xcconfig */,
+				980691782194E4CBBBFA2722 /* Pods-iTunesSearchSampleUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DFF7BD489A8168D272DEDA3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74285BFFE9003801EDFE6ED6 /* Pods_iTunesSearchSample.framework */,
+				3AE4550B87E15E01B96D0B38 /* Pods_iTunesSearchSampleTests.framework */,
+				DDDC64521A7D5513CA47818B /* Pods_iTunesSearchSampleUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E0155F6721CDD6900041A96C = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +155,8 @@
 				E0155F8A21CDD6920041A96C /* iTunesSearchSampleTests */,
 				E0155F9521CDD6920041A96C /* iTunesSearchSampleUITests */,
 				E0155F7121CDD6910041A96C /* Products */,
+				C45DADBCCC74DBAB9AE122B9 /* Pods */,
+				DFF7BD489A8168D272DEDA3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,8 +173,14 @@
 		E0155F7221CDD6910041A96C /* iTunesSearchSample */ = {
 			isa = PBXGroup;
 			children = (
+				E0155FD021CE55160041A96C /* ViewModels */,
+				E0155FC121CE34A60041A96C /* Helpers++ */,
+				E0155FBC21CE32A50041A96C /* Views */,
+				E0155FB321CE07E10041A96C /* CollectionViewCells */,
+				E0155FAA21CDEAA60041A96C /* Models */,
+				E0155FA921CDE2690041A96C /* ViewControllers */,
+				E0155FA421CDD8EB0041A96C /* Repo */,
 				E0155F7321CDD6910041A96C /* AppDelegate.swift */,
-				E0155F7521CDD6910041A96C /* ViewController.swift */,
 				E0155F7721CDD6910041A96C /* Main.storyboard */,
 				E0155F7D21CDD6920041A96C /* Assets.xcassets */,
 				E0155F7F21CDD6920041A96C /* LaunchScreen.storyboard */,
@@ -128,6 +208,81 @@
 			path = iTunesSearchSampleUITests;
 			sourceTree = "<group>";
 		};
+		E0155FA421CDD8EB0041A96C /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				E0155FA521CDD9430041A96C /* FetchedObjects.swift */,
+			);
+			path = Repo;
+			sourceTree = "<group>";
+		};
+		E0155FA921CDE2690041A96C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E0155F7521CDD6910041A96C /* MainScreenController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E0155FAA21CDEAA60041A96C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E0155FAB21CDEAC60041A96C /* Track.swift */,
+				E0155FD321CEBAAB0041A96C /* RealmTrack.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E0155FB321CE07E10041A96C /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E0155FB821CE094F0041A96C /* MainScreenCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		E0155FBC21CE32A50041A96C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E0155FCF21CE3C600041A96C /* DetailsScreen */,
+				E0155FCE21CE3C4F0041A96C /* MainScreen */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E0155FC121CE34A60041A96C /* Helpers++ */ = {
+			isa = PBXGroup;
+			children = (
+				E0155FC221CE34C80041A96C /* ConstraintHelpers++.swift */,
+				E0155FC621CE34E90041A96C /* DeviceHelpers++.swift */,
+			);
+			path = "Helpers++";
+			sourceTree = "<group>";
+		};
+		E0155FCE21CE3C4F0041A96C /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E0155FCA21CE35D60041A96C /* MainScreenBackgroundView.swift */,
+				E0155FBD21CE33270041A96C /* MainScreenSearchView.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		E0155FCF21CE3C600041A96C /* DetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailsScreen;
+			sourceTree = "<group>";
+		};
+		E0155FD021CE55160041A96C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E0155FD121CE554F0041A96C /* TracksViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +290,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0155F9B21CDD6920041A96C /* Build configuration list for PBXNativeTarget "iTunesSearchSample" */;
 			buildPhases = (
+				6CD75A6069D49538C7768A54 /* [CP] Check Pods Manifest.lock */,
 				E0155F6C21CDD6910041A96C /* Sources */,
 				E0155F6D21CDD6910041A96C /* Frameworks */,
 				E0155F6E21CDD6910041A96C /* Resources */,
+				13AD48BF79A3580BFBA30BBB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,9 +309,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0155F9E21CDD6920041A96C /* Build configuration list for PBXNativeTarget "iTunesSearchSampleTests" */;
 			buildPhases = (
+				706305B8541FCF390F4E76D1 /* [CP] Check Pods Manifest.lock */,
 				E0155F8321CDD6920041A96C /* Sources */,
 				E0155F8421CDD6920041A96C /* Frameworks */,
 				E0155F8521CDD6920041A96C /* Resources */,
+				4B96D12CB09C453847F75232 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,9 +329,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0155FA121CDD6920041A96C /* Build configuration list for PBXNativeTarget "iTunesSearchSampleUITests" */;
 			buildPhases = (
+				F7E9DB6BA3EA4251F2BE5AB1 /* [CP] Check Pods Manifest.lock */,
 				E0155F8E21CDD6920041A96C /* Sources */,
 				E0155F8F21CDD6920041A96C /* Frameworks */,
 				E0155F9021CDD6920041A96C /* Resources */,
+				9F033B3E281F2D01641651AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,12 +415,150 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13AD48BF79A3580BFBA30BBB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iTunesSearchSample/Pods-iTunesSearchSample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iTunesSearchSample/Pods-iTunesSearchSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B96D12CB09C453847F75232 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iTunesSearchSampleTests/Pods-iTunesSearchSampleTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iTunesSearchSampleTests/Pods-iTunesSearchSampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CD75A6069D49538C7768A54 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iTunesSearchSample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		706305B8541FCF390F4E76D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iTunesSearchSampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F033B3E281F2D01641651AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iTunesSearchSampleUITests/Pods-iTunesSearchSampleUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iTunesSearchSampleUITests/Pods-iTunesSearchSampleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7E9DB6BA3EA4251F2BE5AB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iTunesSearchSampleUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E0155F6C21CDD6910041A96C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0155F7621CDD6910041A96C /* ViewController.swift in Sources */,
+				E0155FD221CE554F0041A96C /* TracksViewModel.swift in Sources */,
+				E0155FD421CEBAAB0041A96C /* RealmTrack.swift in Sources */,
+				E0155FC321CE34C80041A96C /* ConstraintHelpers++.swift in Sources */,
+				E0155FA621CDD9430041A96C /* FetchedObjects.swift in Sources */,
+				E0155FAC21CDEAC60041A96C /* Track.swift in Sources */,
+				E0155FCB21CE35D60041A96C /* MainScreenBackgroundView.swift in Sources */,
+				E0155FBE21CE33270041A96C /* MainScreenSearchView.swift in Sources */,
+				E0155F7621CDD6910041A96C /* MainScreenController.swift in Sources */,
+				E0155FB921CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */,
+				E0155FC721CE34E90041A96C /* DeviceHelpers++.swift in Sources */,
 				E0155F7C21CDD6910041A96C /* iTunesSearchSample.xcdatamodeld in Sources */,
 				E0155F7421CDD6910041A96C /* AppDelegate.swift in Sources */,
 			);
@@ -269,7 +568,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0155FBA21CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */,
+				E0155FC821CE34E90041A96C /* DeviceHelpers++.swift in Sources */,
+				E0155FCC21CE35D60041A96C /* MainScreenBackgroundView.swift in Sources */,
+				E0155FBF21CE33270041A96C /* MainScreenSearchView.swift in Sources */,
+				E0155FD521CEBAAB0041A96C /* RealmTrack.swift in Sources */,
+				E0155FA721CDD9430041A96C /* FetchedObjects.swift in Sources */,
 				E0155F8C21CDD6920041A96C /* iTunesSearchSampleTests.swift in Sources */,
+				E0155FAD21CDEAC60041A96C /* Track.swift in Sources */,
+				E0155FC421CE34C80041A96C /* ConstraintHelpers++.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +584,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0155FBB21CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */,
+				E0155FC921CE34E90041A96C /* DeviceHelpers++.swift in Sources */,
+				E0155FCD21CE35D60041A96C /* MainScreenBackgroundView.swift in Sources */,
+				E0155FC021CE33270041A96C /* MainScreenSearchView.swift in Sources */,
+				E0155FD621CEBAAB0041A96C /* RealmTrack.swift in Sources */,
+				E0155FA821CDD9430041A96C /* FetchedObjects.swift in Sources */,
 				E0155F9721CDD6920041A96C /* iTunesSearchSampleUITests.swift in Sources */,
+				E0155FAE21CDEAC60041A96C /* Track.swift in Sources */,
+				E0155FC521CE34C80041A96C /* ConstraintHelpers++.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +749,7 @@
 		};
 		E0155F9C21CDD6920041A96C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDF8A00815DB2103347EF80 /* Pods-iTunesSearchSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -452,6 +768,7 @@
 		};
 		E0155F9D21CDD6920041A96C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A659FF879D7F8A6AC24B7CA3 /* Pods-iTunesSearchSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -470,6 +787,7 @@
 		};
 		E0155F9F21CDD6920041A96C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08786CF788AC44DCA32BEE72 /* Pods-iTunesSearchSampleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -491,6 +809,7 @@
 		};
 		E0155FA021CDD6920041A96C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CAB0B95F23AC46CBBE56D84 /* Pods-iTunesSearchSampleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +831,7 @@
 		};
 		E0155FA221CDD6920041A96C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 952D4BBF8E4613CC62A1FF96 /* Pods-iTunesSearchSampleUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +852,7 @@
 		};
 		E0155FA321CDD6920041A96C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 980691782194E4CBBBFA2722 /* Pods-iTunesSearchSampleUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
