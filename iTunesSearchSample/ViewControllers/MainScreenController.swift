@@ -27,33 +27,36 @@ class MainScreenController: UIViewController {
     
     var trackList : RealmSwift.Results<RealmTrack>?
     var tracks = [Track]()
+    var limit = 10
 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(MainScreenCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         setupViews()
-        FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
-            if tracks.count != 0 {
-                self.tracks = tracks
-                TracksViewModel.sharedInstance.assigningObjectToRealmObject(self.tracks, { (realmTracks) in
-                    for track in realmTracks {
-                        CacheManager.sharedInstance.addData(object: track)
+        self.trackList = CacheManager.sharedInstance.getDataFromDB()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+        if self.trackList?.count == 0 /*|| self.trackList?.count == nil */{
+            FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
+                if tracks.count > 0 && tracks.count > self.trackList?.count ?? 0 {
+                    self.tracks = tracks
+                    DispatchQueue.main.async {
+//                        self.collectionView.reloadItems(at: [0..<limit])
+                        self.collectionView.reloadData()
                     }
-                })
-            } else {
-                self.trackList = CacheManager.sharedInstance.getDataFromDB()
-            }
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+                    TracksViewModel.sharedInstance.assigningObjectToRealmObject(self.tracks, { (realmTracks) in
+                        for track in realmTracks {
+                            CacheManager.sharedInstance.addData(object: track)
+                            self.trackList = CacheManager.sharedInstance.getDataFromDB()
+                        }
+                    })
+                }
             }
         }
-        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
-    
+    /// Setting up the view in this screen
     private func setupViews() {
         view.addSubview(backgroundView)
         view.addSubview(searchView)
@@ -68,7 +71,7 @@ class MainScreenController: UIViewController {
 
 }
 
-// Mark: Using a collectionView for a carousel effect.
+// Mark:- CollectionView Methods
 extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -91,17 +94,20 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.titleLbl.text = "\(cellTrack.collectionName ?? "") , \(cellTrack.artistName ?? "")"
             cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? "") ,Country: \(cellTrack.country ?? ""), Currency: \(cellTrack.currency ?? ""), Release Date: \(cellTrack.releaseDate ?? "")"
             if let urlString = cellTrack.artworkUrl100 {
-                cell.imageView.imageDownloader(urlString: urlString)
+                DispatchQueue.main.async {
+                    cell.imageView.imageDownloader(urlString: urlString)
+                }
             } else {
                 cell.imageView.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal) //handle this error someother way
             }
         } else {
             guard let cellTrack = self.trackList?[indexPath.item] else {return cell}
             cell.titleLbl.text = "\(cellTrack.collectionName ?? ""), \(cellTrack.artistName ?? "")"
-            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? "") ,Country: \(cellTrack.country ?? ""), Currency: \(cellTrack.currency ?? ""), Release Date: \(cellTrack.releaseDate ?? "")"
+            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? ""), Country: \(cellTrack.country ?? ""), Currency: \(cellTrack.currency ?? ""), Release Date: \(cellTrack.releaseDate ?? "")"
             if let urlString = cellTrack.artworkUrl100 {
-                cell.imageView.imageDownloader(urlString: urlString)
-                
+                DispatchQueue.main.async {
+                    cell.imageView.imageDownloader(urlString: urlString)
+                }
             } else {
                 cell.imageView.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal) //handle this error someother way
             }

@@ -39,6 +39,7 @@ class MainScreenCollectionViewCell: BaseCell {
         lbl.textAlignment = .center
         lbl.textColor = .white
         lbl.backgroundColor = .clear
+        lbl.font = lbl.font.withSize(14)
         return lbl
     }()
     
