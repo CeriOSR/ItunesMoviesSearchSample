@@ -11,9 +11,10 @@ import Alamofire
 
 class FetchObjectsFromUrl {
     
-//    static let sharedInstance = FetchObjectsFromUrl()
+    static let sharedInstance = FetchObjectsFromUrl()
+    
     /// fetching the json results from URL
-    func fetchObject() -> [Track]{
+    func fetchObject(completion: @escaping ([Track]) -> ()) {
         
         let url = "https://itunes.apple.com/search?term=star&amp;country=au&amp;media=movie"
         var tracks = [Track]()
@@ -21,27 +22,23 @@ class FetchObjectsFromUrl {
 //            print("Request: \(String(describing: response.request))")   // original url request
 //            print("Response: \(String(describing: response.response))") // http url response
 //            print("Result: \(response.result)")                         // response serialization result
-            
             if let data = response.data {
                 do {
                     let decoder = JSONDecoder()
                     let results = try decoder.decode(Results.self, from: data)
                     guard let resultTracks = results.results else {return}
-                    DispatchQueue.main.async {
                         for i in resultTracks {
                             let track = i
                             tracks.append(track)
-                            print(tracks.count)
+//                            print(tracks.count)
+                            completion(tracks)
                         }
-                    }
                 } catch let err {
                     print("Unable to decode json", err)
                 }
             }
         }
-        return tracks
     }
-    
 }
 
 

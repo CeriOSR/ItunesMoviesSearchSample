@@ -10,12 +10,30 @@ import UIKit
 
 class MainScreenCollectionViewCell: BaseCell {
     
+    let dividerView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 10
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.white.cgColor
+        return view
+    }()
+    
     let imageView: UIImageView = {
         let image = UIImageView()
-        image.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal)
+        image.contentMode = .scaleAspectFit
+        image.layer.cornerRadius = 6
         return image
     }()
     let titleLbl : UILabel = {
+        let lbl = UILabel()
+        lbl.numberOfLines = 0
+        lbl.textAlignment = .center
+        lbl.textColor = .white
+        lbl.backgroundColor = .clear
+        return lbl
+    }()
+    
+    let detailsLbl: UILabel = {
         let lbl = UILabel()
         lbl.numberOfLines = 0
         lbl.textAlignment = .center
@@ -28,8 +46,12 @@ class MainScreenCollectionViewCell: BaseCell {
         super.setupViews()
         addSubview(imageView)
         addSubview(titleLbl)
-        imageView.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 25, bottomConstant: 80, rightConstant: 25, widthConstant: 0, heightConstant: 0)
-        titleLbl.anchor(imageView.bottomAnchor, left: imageView.leftAnchor, bottom: bottomAnchor, right: imageView.rightAnchor, topConstant: 2, leftConstant: 0, bottomConstant: 2, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        addSubview(detailsLbl)
+        addSubview(dividerView)
+        dividerView.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 2, rightConstant: 8, widthConstant: 0, heightConstant: 1)
+        imageView.anchor(topAnchor, left: leftAnchor, bottom: dividerView.topAnchor, right: nil , topConstant: 4, leftConstant: 4, bottomConstant: 4, rightConstant: 0, widthConstant: ScreenSize.width * 0.175, heightConstant: 0)
+        titleLbl.anchor(topAnchor, left: imageView.rightAnchor, bottom: nil, right: rightAnchor, topConstant: 4, leftConstant: 4, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: self.frame.height * 0.5)
+        detailsLbl.anchor(titleLbl.bottomAnchor, left: imageView.rightAnchor, bottom: dividerView.topAnchor, right: rightAnchor, topConstant: 4, leftConstant: 4, bottomConstant: 4, rightConstant: 4, widthConstant: 0, heightConstant: 0)
     }
 }
 

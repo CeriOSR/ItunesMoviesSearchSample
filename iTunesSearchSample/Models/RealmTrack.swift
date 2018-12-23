@@ -42,8 +42,8 @@ class RealmTrack: Object {
     @objc dynamic var primaryGenreName: String? = nil
     let isStreamable = RealmOptional<Bool>()
     
-//    override static func primaryKey() -> String? {
-//        return "ID"
-//    }
+    override static func primaryKey() -> String? {
+        return "artistViewUrl"
+    }
 }
 

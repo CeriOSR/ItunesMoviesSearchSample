@@ -9,7 +9,6 @@
 import Foundation
 import RealmSwift
 
-
 class CacheManager {
     private var database:Realm
     static let sharedInstance = CacheManager()

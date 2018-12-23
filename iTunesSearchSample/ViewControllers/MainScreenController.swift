@@ -18,13 +18,10 @@ class MainScreenController: UIViewController {
     let collectionVContainer = UIView()
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: self.collectionVContainer.frame, collectionViewLayout: layout)
-        cv.showsHorizontalScrollIndicator = false
         cv.delegate = self
         cv.dataSource = self
         cv.backgroundColor = .clear
-        
         return cv
     }()
     
@@ -35,20 +32,26 @@ class MainScreenController: UIViewController {
         super.viewDidLoad()
         collectionView.register(MainScreenCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         setupViews()
-        self.tracks = self.fetchObjects.fetchObject()
-        print(tracks.count)
-        let realmTracks = TracksViewModel.sharedInstance.assiningObjectToRealmObject(tracks)
-        for track in realmTracks {
-            CacheManager.sharedInstance.addData(object: track)
+        FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
+            if tracks.count != 0 {
+                self.tracks = tracks
+                TracksViewModel.sharedInstance.assigningObjectToRealmObject(self.tracks, { (realmTracks) in
+                    for track in realmTracks {
+                        CacheManager.sharedInstance.addData(object: track)
+                    }
+                })
+            } else {
+                self.trackList = CacheManager.sharedInstance.getDataFromDB()
+            }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
-        self.trackList = CacheManager.sharedInstance.getDataFromDB()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+        
     }
     
     private func setupViews() {
@@ -60,7 +63,7 @@ class MainScreenController: UIViewController {
         searchView.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 30, leftConstant: 8, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 50)
         collectionVContainer.anchor(searchView.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 4, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         collectionVContainer.addSubview(collectionView)
-        collectionView.anchor(collectionVContainer.topAnchor, left: collectionVContainer.leftAnchor, bottom: collectionVContainer.bottomAnchor, right: collectionVContainer.rightAnchor, topConstant: 0, leftConstant: 50, bottomConstant: 0, rightConstant: 50, widthConstant: 0, heightConstant: 0)
+        collectionView.anchor(collectionVContainer.topAnchor, left: collectionVContainer.leftAnchor, bottom: collectionVContainer.bottomAnchor, right: collectionVContainer.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
 
 }
@@ -72,28 +75,43 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return trackList?.count ?? 0
+        
+        if self.tracks.count != 0 {
+            return self.tracks.count
+        } else {
+            return self.trackList?.count ?? 0
+        }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MainScreenCollectionViewCell
-        cell.titleLbl.text = trackList?[indexPath.item].artistName
+        if self.tracks.count != 0 {
+            let cellTrack = self.tracks[indexPath.item]
+            cell.titleLbl.text = "\(cellTrack.collectionName ?? "") , \(cellTrack.artistName ?? "")"
+            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? "") ,Country: \(cellTrack.country ?? ""), Currency: \(cellTrack.currency ?? ""), Release Date: \(cellTrack.releaseDate ?? "")"
+            if let urlString = cellTrack.artworkUrl100 {
+                cell.imageView.imageDownloader(urlString: urlString)
+            } else {
+                cell.imageView.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal) //handle this error someother way
+            }
+        } else {
+            guard let cellTrack = self.trackList?[indexPath.item] else {return cell}
+            cell.titleLbl.text = "\(cellTrack.collectionName ?? ""), \(cellTrack.artistName ?? "")"
+            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? "") ,Country: \(cellTrack.country ?? ""), Currency: \(cellTrack.currency ?? ""), Release Date: \(cellTrack.releaseDate ?? "")"
+            if let urlString = cellTrack.artworkUrl100 {
+                cell.imageView.imageDownloader(urlString: urlString)
+                
+            } else {
+                cell.imageView.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal) //handle this error someother way
+            }
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionVContainer.frame.width * 0.75, height: collectionVContainer.frame.height * 0.6)
+        return CGSize(width: self.view.frame.width, height: ScreenSize.height * 0.2)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 75.0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 150.0
-    }
-
 }
 
 
