@@ -10,6 +10,7 @@
 		42970B75A75D6C22F5D570BC /* Pods_iTunesSearchSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE4550B87E15E01B96D0B38 /* Pods_iTunesSearchSampleTests.framework */; };
 		43316D9D1BF55CC63706CD66 /* Pods_iTunesSearchSampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDC64521A7D5513CA47818B /* Pods_iTunesSearchSampleUITests.framework */; };
 		660E1609A9D4D162ADF3D8ED /* Pods_iTunesSearchSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74285BFFE9003801EDFE6ED6 /* Pods_iTunesSearchSample.framework */; };
+		AC3A96E921D01CFB00B8DEAC /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96E821D01CFB00B8DEAC /* SplashScreen.swift */; };
 		E0155F7421CDD6910041A96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F7321CDD6910041A96C /* AppDelegate.swift */; };
 		E0155F7621CDD6910041A96C /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F7521CDD6910041A96C /* MainScreenController.swift */; };
 		E0155F7921CDD6910041A96C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0155F7721CDD6910041A96C /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		952D4BBF8E4613CC62A1FF96 /* Pods-iTunesSearchSampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchSampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchSampleUITests/Pods-iTunesSearchSampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		980691782194E4CBBBFA2722 /* Pods-iTunesSearchSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchSampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchSampleUITests/Pods-iTunesSearchSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A659FF879D7F8A6AC24B7CA3 /* Pods-iTunesSearchSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchSample/Pods-iTunesSearchSample.release.xcconfig"; sourceTree = "<group>"; };
+		AC3A96E821D01CFB00B8DEAC /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		DCDF8A00815DB2103347EF80 /* Pods-iTunesSearchSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchSample/Pods-iTunesSearchSample.debug.xcconfig"; sourceTree = "<group>"; };
 		DDDC64521A7D5513CA47818B /* Pods_iTunesSearchSampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunesSearchSampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0155F7021CDD6910041A96C /* iTunesSearchSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearchSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				E0155F7521CDD6910041A96C /* MainScreenController.swift */,
+				AC3A96E821D01CFB00B8DEAC /* SplashScreen.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC3A96E921D01CFB00B8DEAC /* SplashScreen.swift in Sources */,
 				E0155FD821CEDBA60041A96C /* CacheManager.swift in Sources */,
 				E0155FD221CE554F0041A96C /* TracksViewModel.swift in Sources */,
 				E0155FDC21CF59500041A96C /* ImageDownloader.swift in Sources */,
@@ -771,6 +775,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UG8R9K7QQG;
 				INFOPLIST_FILE = iTunesSearchSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -790,6 +795,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UG8R9K7QQG;
 				INFOPLIST_FILE = iTunesSearchSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
