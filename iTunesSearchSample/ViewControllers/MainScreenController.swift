@@ -38,6 +38,7 @@ class MainScreenController: UIViewController {
     var arrayOfTracks = [[Track]]()
     var limit = 10
     var arrayIndex: Int = 0
+    let totalEntries = 50
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,10 @@ class MainScreenController: UIViewController {
     /// Show the Navigation Bar when we push the details view modally.
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    private func addingToArray() {
+        
     }
 
 }
@@ -125,6 +130,25 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
         let detailsScreen = DetailScreenController()
         detailsScreen.details = self.tracks[indexPath.item]
         navigationController?.pushViewController(detailsScreen, animated: true)
+    }
+    
+    /// Pagination method
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        // Bring in more tracks if were not at the last index of tracks
+        if indexPath.item == tracks.count - 1 {
+            if tracks.count < totalEntries {
+                var index = 1
+                limit = indexPath.item + 10
+                while index > limit {
+                    tracks.append(contentsOf: arrayOfTracks[index])
+                    index = index + 1
+                }
+                DispatchQueue.main.async {
+                    collectionView.reloadData()
+                }
+            }
+        }
+        
     }
 }
 
