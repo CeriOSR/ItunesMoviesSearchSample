@@ -12,7 +12,7 @@ class MainScreenBackgroundView: UIView {
     
     let backgroundImage: UIImageView = {
         let view = UIImageView()
-        view.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal)
+        view.image = #imageLiteral(resourceName: "darkGreenGradient").withRenderingMode(.alwaysOriginal)
         view.contentMode = .scaleAspectFill
         return view
     }()

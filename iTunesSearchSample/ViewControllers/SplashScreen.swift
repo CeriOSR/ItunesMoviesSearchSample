@@ -12,6 +12,7 @@ import RealmSwift
 class SplashScreenController: UIViewController {
     
     let realm = try! Realm()
+    let backgroundView = MainScreenBackgroundView()
     var timer : Timer?
     var isRunning: Bool = false
     var trackList : RealmSwift.Results<RealmTrack>?
@@ -55,9 +56,11 @@ class SplashScreenController: UIViewController {
     }
     
     func setupViews() {
-        
+        view.addSubview(backgroundView)
         view.addSubview(logoImageView)
         view.addSubview(devNameLabel)
+        backgroundView.anchor(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+
         logoImageView.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: 10).isActive = true
         logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logoImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
@@ -120,7 +123,8 @@ class SplashScreenController: UIViewController {
             mainScreen.arrayOfTracks = chunckedArray
             mainScreen.tracks = chunckedArray[0]
         }
-        self.present(mainScreen, animated: true, completion: {
+        let navMainScreen = UINavigationController(rootViewController: mainScreen)
+        self.present(navMainScreen, animated: true, completion: {
         })
     }
     

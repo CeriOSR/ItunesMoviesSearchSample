@@ -44,18 +44,20 @@ class MainScreenCollectionViewCell: BaseCell {
     }()
     
     override func setupViews() {
+        self.isUserInteractionEnabled = true
         super.setupViews()
         addSubview(imageView)
         addSubview(titleLbl)
         addSubview(detailsLbl)
         addSubview(dividerView)
         dividerView.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 2, rightConstant: 8, widthConstant: 0, heightConstant: 1)
-        imageView.anchor(topAnchor, left: leftAnchor, bottom: dividerView.topAnchor, right: nil , topConstant: 4, leftConstant: 4, bottomConstant: 4, rightConstant: 0, widthConstant: ScreenSize.width * 0.22, heightConstant: 0)
-        titleLbl.anchor(topAnchor, left: imageView.rightAnchor, bottom: nil, right: rightAnchor, topConstant: 4, leftConstant: 4, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: self.frame.height * 0.5)
+        imageView.anchor(topAnchor, left: leftAnchor, bottom: dividerView.topAnchor, right: nil , topConstant: 16, leftConstant: 16, bottomConstant: 16, rightConstant: 0, widthConstant: ScreenSize.width * 0.22, heightConstant: 0)
+        titleLbl.anchor(topAnchor, left: imageView.rightAnchor, bottom: nil, right: rightAnchor, topConstant: 16, leftConstant: 4, bottomConstant: 0, rightConstant: 4, widthConstant: 0, heightConstant: self.frame.height * 0.5)
         detailsLbl.anchor(titleLbl.bottomAnchor, left: imageView.rightAnchor, bottom: dividerView.topAnchor, right: rightAnchor, topConstant: 4, leftConstant: 4, bottomConstant: 4, rightConstant: 4, widthConstant: 0, heightConstant: 0)
     }
 }
 
+// MARK: - A base cell that initialises the setupViews() method.
 class BaseCell: UICollectionViewCell {
     
     override init(frame: CGRect) {

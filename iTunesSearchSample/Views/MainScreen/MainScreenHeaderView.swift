@@ -37,7 +37,7 @@ class MainScreenHeaderView: UIView {
         
         addSubview(dividerView)
         addSubview(headerLabel)
-        headerLabel.anchor(topAnchor, left: leftAnchor, bottom: dividerView.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 4, rightConstant: 8, widthConstant: 0, heightConstant: ScreenSize.height * 0.1)
+        headerLabel.anchor(nil, left: leftAnchor, bottom: dividerView.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 4, rightConstant: 8, widthConstant: 0, heightConstant: ScreenSize.height * 0.07)
         dividerView.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 4, rightConstant: 8, widthConstant: 0, heightConstant: 1)
         
     }

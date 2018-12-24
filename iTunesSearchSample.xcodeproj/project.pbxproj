@@ -27,6 +27,9 @@
 		AC3A96FC21D08C3C00B8DEAC /* DetailScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96FB21D08C3C00B8DEAC /* DetailScreenController.swift */; };
 		AC3A96FD21D08C3C00B8DEAC /* DetailScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96FB21D08C3C00B8DEAC /* DetailScreenController.swift */; };
 		AC3A96FE21D08C3C00B8DEAC /* DetailScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96FB21D08C3C00B8DEAC /* DetailScreenController.swift */; };
+		AC3A970021D0AA2000B8DEAC /* ImageScaleHelper++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96FF21D0AA2000B8DEAC /* ImageScaleHelper++.swift */; };
+		AC3A970121D0AA2000B8DEAC /* ImageScaleHelper++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96FF21D0AA2000B8DEAC /* ImageScaleHelper++.swift */; };
+		AC3A970221D0AA2000B8DEAC /* ImageScaleHelper++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96FF21D0AA2000B8DEAC /* ImageScaleHelper++.swift */; };
 		E0155F7421CDD6910041A96C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F7321CDD6910041A96C /* AppDelegate.swift */; };
 		E0155F7621CDD6910041A96C /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F7521CDD6910041A96C /* MainScreenController.swift */; };
 		E0155F7921CDD6910041A96C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0155F7721CDD6910041A96C /* Main.storyboard */; };
@@ -98,6 +101,7 @@
 		AC3A96EC21D01FFE00B8DEAC /* sharefonts.net.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sharefonts.net.txt; sourceTree = "<group>"; };
 		AC3A96F721D06C6A00B8DEAC /* ArrayHelper++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrayHelper++.swift"; sourceTree = "<group>"; };
 		AC3A96FB21D08C3C00B8DEAC /* DetailScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenController.swift; sourceTree = "<group>"; };
+		AC3A96FF21D0AA2000B8DEAC /* ImageScaleHelper++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageScaleHelper++.swift"; sourceTree = "<group>"; };
 		DCDF8A00815DB2103347EF80 /* Pods-iTunesSearchSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchSample/Pods-iTunesSearchSample.debug.xcconfig"; sourceTree = "<group>"; };
 		DDDC64521A7D5513CA47818B /* Pods_iTunesSearchSampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunesSearchSampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0155F7021CDD6910041A96C /* iTunesSearchSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesSearchSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,7 +292,6 @@
 		E0155FBC21CE32A50041A96C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E0155FCF21CE3C600041A96C /* DetailsScreen */,
 				E0155FCE21CE3C4F0041A96C /* MainScreen */,
 			);
 			path = Views;
@@ -300,6 +303,7 @@
 				E0155FC221CE34C80041A96C /* ConstraintHelpers++.swift */,
 				E0155FC621CE34E90041A96C /* DeviceHelpers++.swift */,
 				AC3A96F721D06C6A00B8DEAC /* ArrayHelper++.swift */,
+				AC3A96FF21D0AA2000B8DEAC /* ImageScaleHelper++.swift */,
 			);
 			path = "Helpers++";
 			sourceTree = "<group>";
@@ -311,13 +315,6 @@
 				E0155FBD21CE33270041A96C /* MainScreenHeaderView.swift */,
 			);
 			path = MainScreen;
-			sourceTree = "<group>";
-		};
-		E0155FCF21CE3C600041A96C /* DetailsScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DetailsScreen;
 			sourceTree = "<group>";
 		};
 		E0155FD021CE55160041A96C /* ViewModels */ = {
@@ -608,6 +605,7 @@
 				E0155FD421CEBAAB0041A96C /* RealmTrack.swift in Sources */,
 				E0155FC321CE34C80041A96C /* ConstraintHelpers++.swift in Sources */,
 				E0155FA621CDD9430041A96C /* FetchedObjects.swift in Sources */,
+				AC3A970021D0AA2000B8DEAC /* ImageScaleHelper++.swift in Sources */,
 				E0155FAC21CDEAC60041A96C /* Track.swift in Sources */,
 				E0155FCB21CE35D60041A96C /* MainScreenBackgroundView.swift in Sources */,
 				E0155FBE21CE33270041A96C /* MainScreenHeaderView.swift in Sources */,
@@ -628,6 +626,7 @@
 				E0155FBA21CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */,
 				E0155FC821CE34E90041A96C /* DeviceHelpers++.swift in Sources */,
 				E0155FCC21CE35D60041A96C /* MainScreenBackgroundView.swift in Sources */,
+				AC3A970121D0AA2000B8DEAC /* ImageScaleHelper++.swift in Sources */,
 				AC3A96FD21D08C3C00B8DEAC /* DetailScreenController.swift in Sources */,
 				E0155FBF21CE33270041A96C /* MainScreenHeaderView.swift in Sources */,
 				AC3A96F921D06C6A00B8DEAC /* ArrayHelper++.swift in Sources */,
@@ -650,6 +649,7 @@
 				E0155FBB21CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */,
 				E0155FC921CE34E90041A96C /* DeviceHelpers++.swift in Sources */,
 				E0155FCD21CE35D60041A96C /* MainScreenBackgroundView.swift in Sources */,
+				AC3A970221D0AA2000B8DEAC /* ImageScaleHelper++.swift in Sources */,
 				AC3A96FE21D08C3C00B8DEAC /* DetailScreenController.swift in Sources */,
 				E0155FC021CE33270041A96C /* MainScreenHeaderView.swift in Sources */,
 				AC3A96FA21D06C6A00B8DEAC /* ArrayHelper++.swift in Sources */,

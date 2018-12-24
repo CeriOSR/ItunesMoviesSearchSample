@@ -22,6 +22,7 @@ class MainScreenController: UIViewController {
         cv.delegate = self
         cv.dataSource = self
         cv.backgroundColor = .clear
+        cv.isUserInteractionEnabled = true
         return cv
     }()
     
@@ -40,35 +41,15 @@ class MainScreenController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         collectionView.register(MainScreenCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         setupViews()
         print(arrayOfTracks.count)
         print(arrayOfTracks[1].count)
         print(tracks.count)
-//        self.trackList = CacheManager.sharedInstance.getDataFromDB()
-//        DispatchQueue.main.async {
-//            self.collectionView.reloadData()
-//        }
-//        if self.trackList?.count == 0 /*|| self.trackList?.count == nil */{
-//            FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
-//                if tracks.count > 0 && tracks.count > self.trackList?.count ?? 0 {
-//                    self.tracks = tracks
-//                    DispatchQueue.main.async {
-////                        self.collectionView.reloadItems(at: [0..<limit])
-//                        self.collectionView.reloadData()
-//                    }
-//                    TracksViewModel.sharedInstance.assigningObjectToRealmObject(self.tracks, { (realmTracks) in
-//                        for track in realmTracks {
-//                            CacheManager.sharedInstance.addData(object: track)
-//                            self.trackList = CacheManager.sharedInstance.getDataFromDB()
-//                        }
-//                    })
-//                }
-//            }
-//        }
     }
     
-    /// Setting up the view in this screen
+    /// Setting up the views in MainScreenController
     private func setupViews() {
         view.addSubview(backgroundView)
         view.addSubview(headerView)
@@ -79,6 +60,11 @@ class MainScreenController: UIViewController {
         collectionVContainer.anchor(headerView.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 4, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         collectionVContainer.addSubview(collectionView)
         collectionView.anchor(collectionVContainer.topAnchor, left: collectionVContainer.leftAnchor, bottom: collectionVContainer.bottomAnchor, right: collectionVContainer.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+    }
+    
+    /// Show the Navigation Bar when we push the details view modally.
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
     }
 
 }
@@ -93,12 +79,17 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
         return self.tracks.count
     }
     
+    /// Input data into UICollectionViewCell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MainScreenCollectionViewCell
         if self.tracks.count != 0 {
             let cellTrack = self.tracks[indexPath.item]
+            var price: Float = 0.00
+            if let unwrappedPrice = cellTrack.trackPrice {
+                price = unwrappedPrice
+            }
             cell.titleLbl.text = "\(cellTrack.collectionName ?? "") , \(cellTrack.artistName ?? "")"
-            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? "") ,Country: \(cellTrack.country ?? ""), Currency: \(cellTrack.currency ?? ""), Release Date: \(cellTrack.releaseDate ?? "")"
+            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? ""), Price: \(String(describing: price)), Currency: \(cellTrack.currency ?? ""), Release Date: \(cellTrack.releaseDate ?? "")"
             if let urlString = cellTrack.artworkUrl100 {
                 DispatchQueue.main.async {
                     cell.imageView.imageDownloader(urlString: urlString)
@@ -108,8 +99,12 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
             }
         } else {
             guard let cellTrack = self.trackList?[indexPath.item] else {return cell}
-            cell.titleLbl.text = "\(cellTrack.collectionName ?? ""), \(cellTrack.artistName ?? "")"
-            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? ""), Country: \(cellTrack.country ?? ""), Currency: \(cellTrack.currency ?? ""), Release Date: \(cellTrack.releaseDate ?? "")"
+            var price: Float = 0.00
+            if let unwrappedPrice = cellTrack.trackPrice.value {
+                price = Float(unwrappedPrice)
+            }
+            cell.titleLbl.text = "\(cellTrack.trackName ?? ""), \(cellTrack.artistName ?? "")"
+            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? ""), Price: \(String(describing: price)), Currency: \(cellTrack.currency ?? ""), Release Date: \(cellTrack.releaseDate ?? "")"
             if let urlString = cellTrack.artworkUrl100 {
                 DispatchQueue.main.async {
                     cell.imageView.imageDownloader(urlString: urlString)
@@ -125,8 +120,11 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
         return CGSize(width: self.view.frame.width, height: ScreenSize.height * 0.2)
     }
     
+    /// Modally bring in DetailScreenController so it comes with a back button on the Navigation Bar
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let detailsScreen = DetailScreenController()
+        detailsScreen.details = self.tracks[indexPath.item]
+        navigationController?.pushViewController(detailsScreen, animated: true)
     }
 }
 
