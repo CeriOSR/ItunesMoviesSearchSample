@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import RealmSwift
 
-class IntroViewController: UIViewController {
+class SplashScreenController: UIViewController {
     
+    let realm = try! Realm()
     var timer : Timer?
     var isRunning: Bool = false
+    var trackList : RealmSwift.Results<RealmTrack>?
+    var tracks = [Track]()
     let logoImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "chattrBox")
+        iv.image = #imageLiteral(resourceName: "fireBackgroundImage")
         iv.contentMode = .scaleAspectFit
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
@@ -39,6 +43,8 @@ class IntroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.trackList = CacheManager.sharedInstance.getDataFromDB()
+        prefetchDataForMainScreen(results: self.trackList ?? realm.objects(RealmTrack.self).filter(NSPredicate(value: false)))
         setupViews()
         animateViews()
         if isRunning == false {
@@ -82,8 +88,40 @@ class IntroViewController: UIViewController {
         timer = nil
     }
     
+    /// Pre-Fetching data from URL
+    private func prefetchDataForMainScreen(results: RealmSwift.Results<RealmTrack>) {
+        if results.count == 0 {
+            FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
+                if tracks.count > 0 && tracks.count > results.count {
+                    self.tracks = tracks
+                    for track in self.tracks {
+                        TypeConverterViewModel.sharedInstance.assigningObjectToRealmObject(track, { (realmTracks) in
+                            CacheManager.sharedInstance.addData(object: realmTracks)
+                        })
+                    }
+                }
+            }
+        } else {
+            for rTrack in results {
+                TypeConverterViewModel.sharedInstance.assigningResultsToTracks(rTrack, { (track) in
+                    self.tracks.append(track)
+                })
+            }
+            
+        }
+    }
+    
     @objc func loadMainScreen() {
-        performSegue(withIdentifier: "introToTabBar", sender: self)
+        let mainScreen = MainScreenController()
+        if self.tracks.count != 0 {
+            print(self.tracks.count)
+            let chunckedArray = self.tracks.chunked(into: self.tracks.count / 2)
+            print(chunckedArray.count)
+            mainScreen.arrayOfTracks = chunckedArray
+            mainScreen.tracks = chunckedArray[0]
+        }
+        self.present(mainScreen, animated: true, completion: {
+        })
     }
     
     

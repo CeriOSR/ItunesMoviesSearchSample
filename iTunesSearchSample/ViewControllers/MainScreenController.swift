@@ -14,7 +14,7 @@ class MainScreenController: UIViewController {
     let cellId = "cellId"
     let fetchObjects = FetchObjectsFromUrl()
     let backgroundView = MainScreenBackgroundView()
-    let searchView = MainScreenSearchView()
+    let headerView = MainScreenHeaderView()
     let collectionVContainer = UIView()
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -26,45 +26,57 @@ class MainScreenController: UIViewController {
     }()
     
     var trackList : RealmSwift.Results<RealmTrack>?
-    var tracks = [Track]()
+    var tracks = [Track](){
+        didSet {
+            DispatchQueue.main.async {
+                //change this to reload [index] later
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    var arrayOfTracks = [[Track]]()
     var limit = 10
+    var arrayIndex: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(MainScreenCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         setupViews()
-        self.trackList = CacheManager.sharedInstance.getDataFromDB()
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-        if self.trackList?.count == 0 /*|| self.trackList?.count == nil */{
-            FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
-                if tracks.count > 0 && tracks.count > self.trackList?.count ?? 0 {
-                    self.tracks = tracks
-                    DispatchQueue.main.async {
-//                        self.collectionView.reloadItems(at: [0..<limit])
-                        self.collectionView.reloadData()
-                    }
-                    TracksViewModel.sharedInstance.assigningObjectToRealmObject(self.tracks, { (realmTracks) in
-                        for track in realmTracks {
-                            CacheManager.sharedInstance.addData(object: track)
-                            self.trackList = CacheManager.sharedInstance.getDataFromDB()
-                        }
-                    })
-                }
-            }
-        }
+        print(arrayOfTracks.count)
+        print(arrayOfTracks[1].count)
+        print(tracks.count)
+//        self.trackList = CacheManager.sharedInstance.getDataFromDB()
+//        DispatchQueue.main.async {
+//            self.collectionView.reloadData()
+//        }
+//        if self.trackList?.count == 0 /*|| self.trackList?.count == nil */{
+//            FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
+//                if tracks.count > 0 && tracks.count > self.trackList?.count ?? 0 {
+//                    self.tracks = tracks
+//                    DispatchQueue.main.async {
+////                        self.collectionView.reloadItems(at: [0..<limit])
+//                        self.collectionView.reloadData()
+//                    }
+//                    TracksViewModel.sharedInstance.assigningObjectToRealmObject(self.tracks, { (realmTracks) in
+//                        for track in realmTracks {
+//                            CacheManager.sharedInstance.addData(object: track)
+//                            self.trackList = CacheManager.sharedInstance.getDataFromDB()
+//                        }
+//                    })
+//                }
+//            }
+//        }
     }
     
     /// Setting up the view in this screen
     private func setupViews() {
         view.addSubview(backgroundView)
-        view.addSubview(searchView)
+        view.addSubview(headerView)
         view.addSubview(collectionVContainer)
         
         backgroundView.anchor(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
-        searchView.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 30, leftConstant: 8, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 50)
-        collectionVContainer.anchor(searchView.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 4, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        headerView.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 30, leftConstant: 8, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 50)
+        collectionVContainer.anchor(headerView.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 4, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         collectionVContainer.addSubview(collectionView)
         collectionView.anchor(collectionVContainer.topAnchor, left: collectionVContainer.leftAnchor, bottom: collectionVContainer.bottomAnchor, right: collectionVContainer.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
@@ -78,13 +90,7 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if self.tracks.count != 0 {
-            return self.tracks.count
-        } else {
-            return self.trackList?.count ?? 0
-        }
-        
+        return self.tracks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -117,6 +123,10 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.view.frame.width, height: ScreenSize.height * 0.2)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
 }
 
