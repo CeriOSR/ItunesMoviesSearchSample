@@ -13,7 +13,7 @@ import RealmSwift
 class SplashScreenController: UIViewController {
     
     let realm = try! Realm()
-    let backgroundView = MainScreenBackgroundView()
+    let backgroundView = BackgroundView()
     var timer : Timer?
     var isRunning: Bool = false
     var trackList : RealmSwift.Results<RealmTrack>?
@@ -47,6 +47,7 @@ class SplashScreenController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LastVisitDate.sharedInstance.setDateIntoUserDefaults()
         self.trackList = CacheManager.sharedInstance.getDataFromDB()
         prefetchDataForMainScreen(results: self.trackList ?? realm.objects(RealmTrack.self).filter(NSPredicate(value: false)))
         setupViews()
@@ -100,9 +101,10 @@ class SplashScreenController: UIViewController {
         FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
             if tracks.count > 0 && tracks.count > results.count {
                 for track in tracks {
-                    TypeConverterViewModel.sharedInstance.assigningObjectToRealmObject(track, { (realmTrack) in
+                    TypeConverter.sharedInstance.assigningObjectToRealmObject(track, { (realmTrack) in
                         CacheManager.sharedInstance.addData(object: realmTrack)
                         self.trackList = CacheManager.sharedInstance.getDataFromDB()
+                        
                     })
                 }
             }

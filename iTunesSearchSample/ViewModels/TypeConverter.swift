@@ -1,5 +1,5 @@
 //
-//  TracksViewModel.swift
+//  TypeConverter.swift
 //  iTunesSearchSample
 //
 //  Created by Rey Cerio on 22/12/2018.
@@ -11,9 +11,9 @@ import RealmSwift
 
 
 // MARK: - Doing things the long way because RealmSwift.Results<T> is lazy var.
-class TypeConverterViewModel {
+class TypeConverter {
     
-    static let sharedInstance = TypeConverterViewModel()
+    static let sharedInstance = TypeConverter()
     
     /// Converting [Track] to RealmObject (Results<RealmTrack>)
 

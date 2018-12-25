@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - Background View for MainScreenController
-class MainScreenBackgroundView: UIView {
+class BackgroundView: UIView {
     
     let backgroundImage: UIImageView = {
         let view = UIImageView()

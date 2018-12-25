@@ -13,8 +13,8 @@ class MainScreenController: UIViewController {
 
     let cellId = "cellId"
     let fetchObjects = FetchObjectsFromUrl()
-    let backgroundView = MainScreenBackgroundView()
-    let headerView = MainScreenHeaderView()
+    let backgroundView = BackgroundView()
+    let headerView = HeaderView()
     let collectionVContainer = UIView()
     lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -29,8 +29,11 @@ class MainScreenController: UIViewController {
     var trackList : RealmSwift.Results<RealmTrack>? {
         didSet{
             DispatchQueue.main.async {
-                //change this to reload [index] later
-                print(self.trackList?.count ?? 0)
+                //change this to reload [index] later                
+                LastVisitDate.sharedInstance.getDateFromUserDefaults(completion: { (date) in
+                    let splitDate = date.split(separator: " ")
+                    self.headerView.lastVisitDateLbl.text = "Last visit: \(splitDate[0])"
+                })
                 self.collectionView.reloadData()
             }
         }

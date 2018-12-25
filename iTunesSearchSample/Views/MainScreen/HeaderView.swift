@@ -9,13 +9,21 @@
 import UIKit
 
 // MARK: - Header View for MainScreenController
-class MainScreenHeaderView: UIView {
+class HeaderView: UIView {
     
     let headerLabel: UILabel = {
         let lbl = UILabel()
         lbl.font = lbl.font.withSize(25)
         lbl.text = "Movies"
         lbl.textColor = UIColor.white
+        return lbl
+    }()
+    
+    let lastVisitDateLbl: UILabel = {
+        let lbl = UILabel()
+        lbl.font = lbl.font.withSize(15)
+        lbl.textColor = UIColor.white
+        lbl.textAlignment = .right
         return lbl
     }()
     
@@ -37,7 +45,9 @@ class MainScreenHeaderView: UIView {
     private func setupViews() {
         addSubview(dividerView)
         addSubview(headerLabel)
-        headerLabel.anchor(nil, left: leftAnchor, bottom: dividerView.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 4, rightConstant: 8, widthConstant: 0, heightConstant: ScreenSize.height * 0.07)
+        addSubview(lastVisitDateLbl)
+        headerLabel.anchor(nil, left: leftAnchor, bottom: dividerView.topAnchor, right: nil, topConstant: 0, leftConstant: 8, bottomConstant: 2, rightConstant: 0, widthConstant: ScreenSize.width * 0.25, heightConstant: ScreenSize.height * 0.07)
+        lastVisitDateLbl.anchor(nil, left: nil, bottom: dividerView.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: ScreenSize.width * 0.5, heightConstant: ScreenSize.height * 0.07)
         dividerView.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 4, rightConstant: 8, widthConstant: 0, heightConstant: 1)
     }
 }

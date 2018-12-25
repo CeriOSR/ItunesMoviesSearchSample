@@ -12,7 +12,7 @@ import RealmSwift
 //MARK: - Displays the details of selected track.
 class DetailScreenController: UIViewController {
     
-    let backgroundView = MainScreenBackgroundView()
+    let backgroundView = BackgroundView()
     let detailsView = DetailsView()
 
     /// Closure that auto loads the track details into the views.
