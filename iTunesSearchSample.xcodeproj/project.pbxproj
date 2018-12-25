@@ -66,6 +66,11 @@
 		E0155FDC21CF59500041A96C /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FDB21CF59500041A96C /* ImageDownloader.swift */; };
 		E0155FDD21CF59500041A96C /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FDB21CF59500041A96C /* ImageDownloader.swift */; };
 		E0155FDE21CF59500041A96C /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FDB21CF59500041A96C /* ImageDownloader.swift */; };
+		E0AADC5221D2C5BD00C2B4E5 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5121D2C5BD00C2B4E5 /* DetailsView.swift */; };
+		E0AADC5321D2C5BD00C2B4E5 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5121D2C5BD00C2B4E5 /* DetailsView.swift */; };
+		E0AADC5421D2C5BD00C2B4E5 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5121D2C5BD00C2B4E5 /* DetailsView.swift */; };
+		E0AADC5521D2C97400C2B4E5 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F7521CDD6910041A96C /* MainScreenController.swift */; };
+		E0AADC5621D2C97500C2B4E5 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F7521CDD6910041A96C /* MainScreenController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +130,7 @@
 		E0155FD321CEBAAB0041A96C /* RealmTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTrack.swift; sourceTree = "<group>"; };
 		E0155FD721CEDBA60041A96C /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		E0155FDB21CF59500041A96C /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		E0AADC5121D2C5BD00C2B4E5 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +283,7 @@
 		E0155FBC21CE32A50041A96C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E0AADC5021D2C59C00C2B4E5 /* DetailsView */,
 				E0155FCE21CE3C4F0041A96C /* MainScreen */,
 			);
 			path = Views;
@@ -310,6 +317,14 @@
 				E0155FD121CE554F0041A96C /* TypeConverterViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E0AADC5021D2C59C00C2B4E5 /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				E0AADC5121D2C5BD00C2B4E5 /* DetailsView.swift */,
+			);
+			path = DetailsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -595,6 +610,7 @@
 				E0155FAC21CDEAC60041A96C /* Track.swift in Sources */,
 				E0155FCB21CE35D60041A96C /* MainScreenBackgroundView.swift in Sources */,
 				E0155FBE21CE33270041A96C /* MainScreenHeaderView.swift in Sources */,
+				E0AADC5221D2C5BD00C2B4E5 /* DetailsView.swift in Sources */,
 				E0155F7621CDD6910041A96C /* MainScreenController.swift in Sources */,
 				AC3A96FC21D08C3C00B8DEAC /* DetailScreenController.swift in Sources */,
 				E0155FB921CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */,
@@ -620,7 +636,9 @@
 				E0155FDD21CF59500041A96C /* ImageDownloader.swift in Sources */,
 				AC3A96F521D0555C00B8DEAC /* TypeConverterViewModel.swift in Sources */,
 				E0155FD921CEDBA60041A96C /* CacheManager.swift in Sources */,
+				E0AADC5521D2C97400C2B4E5 /* MainScreenController.swift in Sources */,
 				E0155F8C21CDD6920041A96C /* iTunesSearchSampleTests.swift in Sources */,
+				E0AADC5321D2C5BD00C2B4E5 /* DetailsView.swift in Sources */,
 				E0155FAD21CDEAC60041A96C /* Track.swift in Sources */,
 				E0155FC421CE34C80041A96C /* ConstraintHelpers++.swift in Sources */,
 			);
@@ -642,7 +660,9 @@
 				E0155FDE21CF59500041A96C /* ImageDownloader.swift in Sources */,
 				AC3A96F621D0555D00B8DEAC /* TypeConverterViewModel.swift in Sources */,
 				E0155FDA21CEDBA60041A96C /* CacheManager.swift in Sources */,
+				E0AADC5621D2C97500C2B4E5 /* MainScreenController.swift in Sources */,
 				E0155F9721CDD6920041A96C /* iTunesSearchSampleUITests.swift in Sources */,
+				E0AADC5421D2C5BD00C2B4E5 /* DetailsView.swift in Sources */,
 				E0155FAE21CDEAC60041A96C /* Track.swift in Sources */,
 				E0155FC521CE34C80041A96C /* ConstraintHelpers++.swift in Sources */,
 			);

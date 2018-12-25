@@ -9,16 +9,12 @@
 import UIKit
 import RealmSwift
 
+//MARK: - Displays the details of selected track.
 class DetailScreenController: UIViewController {
     
     let backgroundView = MainScreenBackgroundView()
-    var details = Track() {
-        didSet{
-            if let imageUrl = self.details.artworkUrl100 {
-                self.trackImageView.imageDownloader(urlString: imageUrl)
-            }
-        }
-    }
+    let detailsView = DetailsView()
+
     /// Closure that auto loads the track details into the views.
     var track = RealmTrack() {
         didSet{
@@ -38,38 +34,13 @@ class DetailScreenController: UIViewController {
                     let country = self.track.country,
                     let currency = self.track.currency,
                     let isStreamable = self.track.isStreamable.value {
-                    self.trackImageView.imageDownloader(urlString: imageUrl)
-                    self.firstDetailsLbl.text = "\(String(describing: trackName))\n\(String(describing: artistName))\n\(String(describing: kind))\n\(String(describing: trackCensoredName))\n\(String(describing: primaryGenreName))\n\(String(describing: previewUrl))"
-                    self.secondDetailsLbl.text = "\(String(describing: collectionName))\n\(String(describing: collectionCensoredName))\n\(String(describing: collectionExplicitness))\n\(String(describing: trackExplicitness))\n\(String(describing: releaseDate))\n\(String(describing: country))\n\(String(describing: currency))\nStreamable: \(String(describing: isStreamable))\n"
+                    self.detailsView.trackImageView.imageDownloader(urlString: imageUrl)
+                    self.detailsView.firstDetailsLbl.text = "\(String(describing: trackName))\n\(String(describing: artistName))\n\(String(describing: kind))\n\(String(describing: trackCensoredName))\n\(String(describing: primaryGenreName))\n\(String(describing: previewUrl))"
+                    self.detailsView.secondDetailsLbl.text = "\(String(describing: collectionName))\n\(String(describing: collectionCensoredName))\n\(String(describing: collectionExplicitness))\n\(String(describing: trackExplicitness))\n\(String(describing: releaseDate))\n\(String(describing: country))\n\(String(describing: currency))\nStreamable: \(String(describing: isStreamable))\n"
                 }
             }
         }
     }
-
-    let trackImageView : UIImageView = {
-        let view = UIImageView()
-        view.layer.cornerRadius = 10
-        view.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal)
-        view.contentMode = .scaleToFill
-        return view
-    }()
-    
-    let firstDetailsLbl: UILabel = {
-        let lbl = UILabel()
-        lbl.numberOfLines = 0
-        lbl.textAlignment = .center
-        lbl.textColor = .white
-        lbl.font = lbl.font.withSize(20)
-        return lbl
-    }()
-    
-    let secondDetailsLbl: UILabel = {
-        let lbl = UILabel()
-        lbl.numberOfLines = 0
-        lbl.textColor = .white
-        lbl.textAlignment = .center
-        return lbl
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,13 +62,10 @@ class DetailScreenController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         view.backgroundColor = .white
         view.addSubview(backgroundView)
-        view.addSubview(trackImageView)
-        view.addSubview(firstDetailsLbl)
-        view.addSubview(secondDetailsLbl)
+        view.addSubview(detailsView)
+
         backgroundView.anchor(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
-        trackImageView.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 8, leftConstant: 20, bottomConstant: 0, rightConstant: 20, widthConstant: 0, heightConstant: ScreenSize.height * 0.4)
-        firstDetailsLbl.anchor(trackImageView.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: nil, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 4, leftConstant: 20, bottomConstant: 0, rightConstant: 20, widthConstant: 0, heightConstant: ScreenSize.height * 0.2)
-        secondDetailsLbl.anchor(firstDetailsLbl.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 4, leftConstant: 20, bottomConstant: 4, rightConstant: 20, widthConstant: 0, heightConstant: 0)
+        detailsView.anchor(view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
     
 }

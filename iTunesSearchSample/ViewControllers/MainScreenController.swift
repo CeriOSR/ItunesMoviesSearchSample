@@ -44,19 +44,12 @@ class MainScreenController: UIViewController {
             }
         }
     }
-//    var arrayOfTracks = [[Track]]()
-//    var limit = 10
-//    let totalEntries = 50
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         collectionView.register(MainScreenCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         setupViews()
-//        print(arrayOfTracks.count)
-//        print(arrayOfTracks[1].count)
-//        print(tracks.count)
-        print(trackList?.count ?? 0)
     }
     
     /// Setting up the views in MainScreenController
@@ -133,26 +126,6 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
         detailsScreen.track = self.trackList?[indexPath.item] ?? RealmTrack()
         navigationController?.pushViewController(detailsScreen, animated: true)
     }
-    
-//    /// Pagination method
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        // Bring in more tracks if were not at the last index of tracks
-//        if indexPath.item == tracks.count - 1 {
-//            if tracks.count < totalEntries {
-//                var index = self.tracks.count
-//                limit = index + 10
-//                while index > limit {
-//                    tracks.append(tracks[index])
-//                    index = index + 1
-//                    DispatchQueue.main.async {
-//                        collectionView.reloadData()
-//                    }
-//                }
-//
-//            }
-//        }
-//
-//    }
 }
 
 

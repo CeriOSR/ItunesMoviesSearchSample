@@ -10,7 +10,6 @@ import Foundation
 import RealmSwift
 
 // MARK: Decodable model used for fetching data from url.
-
 struct Results: Decodable {
     private enum CodingKeys: String, CodingKey {
         case resultCount, results

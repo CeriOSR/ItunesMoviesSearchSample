@@ -22,6 +22,7 @@ class MainScreenCollectionViewCell: BaseCell {
     let imageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
+        image.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal)
         image.layer.cornerRadius = 6
         return image
     }()

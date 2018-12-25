@@ -10,6 +10,7 @@ import Foundation
 import AlamofireImage
 import Alamofire
 
+/// AlamoFireImage Image download handler
 extension UIImageView {
 
     func imageDownloader(urlString: String) {
@@ -22,7 +23,7 @@ extension UIImageView {
             if let image = response.result.value {
                 let scaledImage = image.af_imageScaled(to: CGSize(width: 500, height: 500))
                 
-////                let scaledImage = image.af_imageAspectScaled(toFill: CGSize(width: 750, height: 1000))
+//                let scaledImage = image.af_imageAspectScaled(toFill: CGSize(width: 750, height: 1000))
 //                let scaledImage = image.resizeImage(1000, opaque: false, contentMode: .scaleAspectFit)
                 self.image = scaledImage
             }

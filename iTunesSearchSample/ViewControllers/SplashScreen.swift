@@ -111,7 +111,7 @@ class SplashScreenController: UIViewController {
     
     /// Loads the MainScreenController and pass the details.
     @objc func loadMainScreen() {
-        let mainScreen = MainScreenController()
+        let mainScreen = MainScreenController()        
         mainScreen.trackList = self.trackList
         let navMainScreen = UINavigationController(rootViewController: mainScreen)
         self.present(navMainScreen, animated: true, completion: {
