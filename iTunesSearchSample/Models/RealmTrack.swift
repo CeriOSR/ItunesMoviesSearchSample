@@ -9,12 +9,12 @@
 import Foundation
 import RealmSwift
 
+// MARK: - RealmSwift Type Model used by realm
 class RealmTrack: Object {
     @objc dynamic var wrapperType: String? = nil
     @objc dynamic var kind: String? = nil
     let artistId = RealmOptional<Double>()
     let collectionId = RealmOptional<Double>()
-//    convert trackId to string
     @objc dynamic var trackId: String? = nil
     @objc dynamic var artistName: String? = nil
     @objc dynamic var collectionName: String? = nil
@@ -43,6 +43,7 @@ class RealmTrack: Object {
     @objc dynamic var primaryGenreName: String? = nil
     let isStreamable = RealmOptional<Bool>()
     
+    /// Primary Id for the realm objects, converted trackId to string because it started off as Double()
     override static func primaryKey() -> String? {
         return "trackId"
     }

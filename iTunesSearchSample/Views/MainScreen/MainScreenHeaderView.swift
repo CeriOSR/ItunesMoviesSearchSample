@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Header View for MainScreenController
 class MainScreenHeaderView: UIView {
     
     let headerLabel: UILabel = {
@@ -34,16 +35,9 @@ class MainScreenHeaderView: UIView {
     }
     
     private func setupViews() {
-        
         addSubview(dividerView)
         addSubview(headerLabel)
         headerLabel.anchor(nil, left: leftAnchor, bottom: dividerView.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 4, rightConstant: 8, widthConstant: 0, heightConstant: ScreenSize.height * 0.07)
         dividerView.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 4, rightConstant: 8, widthConstant: 0, heightConstant: 1)
-        
     }
-    
-    @objc func handleSearchButtonTapped() {
-        print("Handle Search Button Tapped")
-    }
-    
 }

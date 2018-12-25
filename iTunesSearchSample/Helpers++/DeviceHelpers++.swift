@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Fetch user device details
 enum UIUserInterfaceIdiom: Int {
     case undefined
     case phone

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - UICollectionViewCell for collectionView inside MainScreenController
 class MainScreenCollectionViewCell: BaseCell {
     
     let dividerView: UIView = {

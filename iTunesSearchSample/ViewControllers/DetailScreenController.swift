@@ -19,7 +19,7 @@ class DetailScreenController: UIViewController {
             }
         }
     }
-    
+    /// Closure that auto loads the track details into the views.
     var track = RealmTrack() {
         didSet{
             DispatchQueue.main.async {

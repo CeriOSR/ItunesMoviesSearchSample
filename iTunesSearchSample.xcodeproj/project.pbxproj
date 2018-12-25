@@ -21,9 +21,6 @@
 		AC3A96F421D02A3C00B8DEAC /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96E821D01CFB00B8DEAC /* SplashScreen.swift */; };
 		AC3A96F521D0555C00B8DEAC /* TypeConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FD121CE554F0041A96C /* TypeConverterViewModel.swift */; };
 		AC3A96F621D0555D00B8DEAC /* TypeConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155FD121CE554F0041A96C /* TypeConverterViewModel.swift */; };
-		AC3A96F821D06C6A00B8DEAC /* ArrayHelper++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96F721D06C6A00B8DEAC /* ArrayHelper++.swift */; };
-		AC3A96F921D06C6A00B8DEAC /* ArrayHelper++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96F721D06C6A00B8DEAC /* ArrayHelper++.swift */; };
-		AC3A96FA21D06C6A00B8DEAC /* ArrayHelper++.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96F721D06C6A00B8DEAC /* ArrayHelper++.swift */; };
 		AC3A96FC21D08C3C00B8DEAC /* DetailScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96FB21D08C3C00B8DEAC /* DetailScreenController.swift */; };
 		AC3A96FD21D08C3C00B8DEAC /* DetailScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96FB21D08C3C00B8DEAC /* DetailScreenController.swift */; };
 		AC3A96FE21D08C3C00B8DEAC /* DetailScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3A96FB21D08C3C00B8DEAC /* DetailScreenController.swift */; };
@@ -99,7 +96,6 @@
 		AC3A96E821D01CFB00B8DEAC /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		AC3A96EB21D01FFE00B8DEAC /* Glitzstick.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Glitzstick.ttf; sourceTree = "<group>"; };
 		AC3A96EC21D01FFE00B8DEAC /* sharefonts.net.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sharefonts.net.txt; sourceTree = "<group>"; };
-		AC3A96F721D06C6A00B8DEAC /* ArrayHelper++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrayHelper++.swift"; sourceTree = "<group>"; };
 		AC3A96FB21D08C3C00B8DEAC /* DetailScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenController.swift; sourceTree = "<group>"; };
 		AC3A96FF21D0AA2000B8DEAC /* ImageScaleHelper++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageScaleHelper++.swift"; sourceTree = "<group>"; };
 		DCDF8A00815DB2103347EF80 /* Pods-iTunesSearchSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearchSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTunesSearchSample/Pods-iTunesSearchSample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -222,7 +218,6 @@
 				E0155FB321CE07E10041A96C /* CollectionViewCells */,
 				E0155FAA21CDEAA60041A96C /* Models */,
 				E0155FA921CDE2690041A96C /* ViewControllers */,
-				E0155FA421CDD8EB0041A96C /* Repo */,
 				AC3A96EA21D01FFE00B8DEAC /* glitzstick */,
 				E0155F7321CDD6910041A96C /* AppDelegate.swift */,
 				E0155F7721CDD6910041A96C /* Main.storyboard */,
@@ -250,16 +245,6 @@
 				E0155F9821CDD6920041A96C /* Info.plist */,
 			);
 			path = iTunesSearchSampleUITests;
-			sourceTree = "<group>";
-		};
-		E0155FA421CDD8EB0041A96C /* Repo */ = {
-			isa = PBXGroup;
-			children = (
-				E0155FA521CDD9430041A96C /* FetchedObjects.swift */,
-				E0155FD721CEDBA60041A96C /* CacheManager.swift */,
-				E0155FDB21CF59500041A96C /* ImageDownloader.swift */,
-			);
-			path = Repo;
 			sourceTree = "<group>";
 		};
 		E0155FA921CDE2690041A96C /* ViewControllers */ = {
@@ -302,7 +287,6 @@
 			children = (
 				E0155FC221CE34C80041A96C /* ConstraintHelpers++.swift */,
 				E0155FC621CE34E90041A96C /* DeviceHelpers++.swift */,
-				AC3A96F721D06C6A00B8DEAC /* ArrayHelper++.swift */,
 				AC3A96FF21D0AA2000B8DEAC /* ImageScaleHelper++.swift */,
 			);
 			path = "Helpers++";
@@ -320,6 +304,9 @@
 		E0155FD021CE55160041A96C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E0155FDB21CF59500041A96C /* ImageDownloader.swift */,
+				E0155FD721CEDBA60041A96C /* CacheManager.swift */,
+				E0155FA521CDD9430041A96C /* FetchedObjects.swift */,
 				E0155FD121CE554F0041A96C /* TypeConverterViewModel.swift */,
 			);
 			path = ViewModels;
@@ -600,7 +587,6 @@
 				AC3A96E921D01CFB00B8DEAC /* SplashScreen.swift in Sources */,
 				E0155FD821CEDBA60041A96C /* CacheManager.swift in Sources */,
 				E0155FD221CE554F0041A96C /* TypeConverterViewModel.swift in Sources */,
-				AC3A96F821D06C6A00B8DEAC /* ArrayHelper++.swift in Sources */,
 				E0155FDC21CF59500041A96C /* ImageDownloader.swift in Sources */,
 				E0155FD421CEBAAB0041A96C /* RealmTrack.swift in Sources */,
 				E0155FC321CE34C80041A96C /* ConstraintHelpers++.swift in Sources */,
@@ -629,7 +615,6 @@
 				AC3A970121D0AA2000B8DEAC /* ImageScaleHelper++.swift in Sources */,
 				AC3A96FD21D08C3C00B8DEAC /* DetailScreenController.swift in Sources */,
 				E0155FBF21CE33270041A96C /* MainScreenHeaderView.swift in Sources */,
-				AC3A96F921D06C6A00B8DEAC /* ArrayHelper++.swift in Sources */,
 				E0155FD521CEBAAB0041A96C /* RealmTrack.swift in Sources */,
 				E0155FA721CDD9430041A96C /* FetchedObjects.swift in Sources */,
 				E0155FDD21CF59500041A96C /* ImageDownloader.swift in Sources */,
@@ -652,7 +637,6 @@
 				AC3A970221D0AA2000B8DEAC /* ImageScaleHelper++.swift in Sources */,
 				AC3A96FE21D08C3C00B8DEAC /* DetailScreenController.swift in Sources */,
 				E0155FC021CE33270041A96C /* MainScreenHeaderView.swift in Sources */,
-				AC3A96FA21D06C6A00B8DEAC /* ArrayHelper++.swift in Sources */,
 				E0155FD621CEBAAB0041A96C /* RealmTrack.swift in Sources */,
 				E0155FA821CDD9430041A96C /* FetchedObjects.swift in Sources */,
 				E0155FDE21CF59500041A96C /* ImageDownloader.swift in Sources */,

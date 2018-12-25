@@ -8,7 +8,7 @@
 
 import UIKit
 
-//MARK:- Image scaler, Home made. 
+//MARK:- Image scaler, Homemade. If incase I choose not to use AlamoFireImage in-library image scaler
 extension UIImage {
     func resizeImage(_ dimension: CGFloat, opaque: Bool, contentMode: UIView.ContentMode = .scaleAspectFit) -> UIImage {
         var width: CGFloat

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Helps with Autolayout
 extension UIView {
     public func addConstraintsWithFormat(_ format: String, views: UIView...) {
         

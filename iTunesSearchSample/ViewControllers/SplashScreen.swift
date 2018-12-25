@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+// MARK: - Added splash screen where prefetching happens.
 class SplashScreenController: UIViewController {
     
     let realm = try! Realm()
@@ -24,6 +25,8 @@ class SplashScreenController: UIViewController {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
+    
+    /// Installed new Font called "Glitzstick"
     let devNameLabel: UILabel = {
         let label = UILabel()
         guard let customFont = UIFont(name: "Glitzstick", size: 40) else {
@@ -55,6 +58,7 @@ class SplashScreenController: UIViewController {
         }
     }
     
+    /// Programmatically setup autolayoutconstraints
     func setupViews() {
         view.addSubview(backgroundView)
         view.addSubview(logoImageView)
@@ -93,28 +97,19 @@ class SplashScreenController: UIViewController {
     
     /// Pre-Fetching data from URL
     private func prefetchDataForMainScreen(results: RealmSwift.Results<RealmTrack>) {
-//        if results.count == 0 {
-            FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
-                if tracks.count > 0 && tracks.count > results.count {
-                    for track in tracks {
-                        TypeConverterViewModel.sharedInstance.assigningObjectToRealmObject(track, { (realmTrack) in
-                            CacheManager.sharedInstance.addData(object: realmTrack)
-                            self.trackList = CacheManager.sharedInstance.getDataFromDB()
-                        })
-                    }
+        FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
+            if tracks.count > 0 && tracks.count > results.count {
+                for track in tracks {
+                    TypeConverterViewModel.sharedInstance.assigningObjectToRealmObject(track, { (realmTrack) in
+                        CacheManager.sharedInstance.addData(object: realmTrack)
+                        self.trackList = CacheManager.sharedInstance.getDataFromDB()
+                    })
                 }
             }
-//        }
-//        else {
-//            for rTrack in results {
-//                TypeConverterViewModel.sharedInstance.assigningResultsToTracks(rTrack, { (track) in
-//                    self.tracks.append(track)
-//                })
-//            }
-//            
-//        }
+        }
     }
     
+    /// Loads the MainScreenController and pass the details.
     @objc func loadMainScreen() {
         let mainScreen = MainScreenController()
         mainScreen.trackList = self.trackList
@@ -122,7 +117,4 @@ class SplashScreenController: UIViewController {
         self.present(navMainScreen, animated: true, completion: {
         })
     }
-    
-    
-    
 }
