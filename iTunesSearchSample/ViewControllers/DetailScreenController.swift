@@ -34,9 +34,10 @@ class DetailScreenController: UIViewController {
                     let country = self.track.country,
                     let currency = self.track.currency,
                     let isStreamable = self.track.isStreamable.value {
+                    let splitDate = releaseDate.split(separator: "T")
                     self.detailsView.trackImageView.imageDownloader(urlString: imageUrl)
                     self.detailsView.firstDetailsLbl.text = "\(String(describing: trackName))\n\(String(describing: artistName))\n\(String(describing: kind))\n\(String(describing: trackCensoredName))\n\(String(describing: primaryGenreName))\n\(String(describing: previewUrl))"
-                    self.detailsView.secondDetailsLbl.text = "\(String(describing: collectionName))\n\(String(describing: collectionCensoredName))\n\(String(describing: collectionExplicitness))\n\(String(describing: trackExplicitness))\n\(String(describing: releaseDate))\n\(String(describing: country))\n\(String(describing: currency))\nStreamable: \(String(describing: isStreamable))\n"
+                    self.detailsView.secondDetailsLbl.text = "\(String(describing: collectionName))\n\(String(describing: collectionCensoredName))\n\(String(describing: collectionExplicitness))\n\(String(describing: trackExplicitness))\n\(String(describing: splitDate[0]))\n\(String(describing: country))\n\(String(describing: currency))\nStreamable: \(String(describing: isStreamable))\n"
                 }
             }
         }

@@ -81,7 +81,7 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
         return self.trackList?.count ?? 0
     }
     
-    /// Input data into UICollectionViewCell
+    /// Input data into UICollectionViewCell, ommited time in the date variable via String().split(separator:) method
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MainScreenCollectionViewCell
         if self.tracks.count != 0 {
@@ -90,8 +90,10 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
             if let unwrappedPrice = cellTrack.trackPrice {
                 price = unwrappedPrice
             }
+            let date = cellTrack.releaseDate
+            let splitDate = date?.split(separator: "T")
             cell.titleLbl.text = "\(cellTrack.collectionName ?? "") , \(cellTrack.artistName ?? "")"
-            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? ""), Price: \(String(describing: price)), Currency: \(cellTrack.currency ?? ""), Release Date: \(cellTrack.releaseDate ?? "")"
+            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? ""), Price: $\(String(describing: price)), Currency: \(cellTrack.currency ?? ""), Release Date: \(splitDate?[0] ?? "")"
             if let urlString = cellTrack.artworkUrl100 {
                 DispatchQueue.main.async {
                     cell.imageView.imageDownloader(urlString: urlString)
@@ -105,8 +107,10 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
             if let unwrappedPrice = cellTrack.trackPrice.value {
                 price = Float(unwrappedPrice)
             }
+            let date = cellTrack.releaseDate
+            let splitDate = date?.split(separator: "T")
             cell.titleLbl.text = "\(cellTrack.trackName ?? ""), \(cellTrack.artistName ?? "")"
-            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? ""), Price: \(String(describing: price)), Currency: \(cellTrack.currency ?? ""), Release Date: \(cellTrack.releaseDate ?? "")"
+            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? ""), Price: $\(String(describing: price)), Currency: \(cellTrack.currency ?? ""), Release Date: \(splitDate?[0] ?? "")"
             if let urlString = cellTrack.artworkUrl100 {
                     cell.imageView.imageDownloader(urlString: urlString)
             } else {
