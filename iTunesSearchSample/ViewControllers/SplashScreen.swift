@@ -47,7 +47,7 @@ class SplashScreenController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        LastVisitDate.sharedInstance.setDateIntoUserDefaults()
+        navigationController?.navigationBar.isHidden = true
         self.trackList = CacheManager.sharedInstance.getDataFromDB()
         prefetchDataForMainScreen(results: self.trackList ?? realm.objects(RealmTrack.self).filter(NSPredicate(value: false)))
         setupViews()

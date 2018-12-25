@@ -71,12 +71,12 @@
 		E0AADC5421D2C5BD00C2B4E5 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5121D2C5BD00C2B4E5 /* DetailsView.swift */; };
 		E0AADC5521D2C97400C2B4E5 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F7521CDD6910041A96C /* MainScreenController.swift */; };
 		E0AADC5621D2C97500C2B4E5 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0155F7521CDD6910041A96C /* MainScreenController.swift */; };
-		E0AADC5821D2D9FE00C2B4E5 /* LastVisitDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5721D2D9FE00C2B4E5 /* LastVisitDateModel.swift */; };
-		E0AADC5921D2D9FE00C2B4E5 /* LastVisitDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5721D2D9FE00C2B4E5 /* LastVisitDateModel.swift */; };
-		E0AADC5A21D2D9FE00C2B4E5 /* LastVisitDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5721D2D9FE00C2B4E5 /* LastVisitDateModel.swift */; };
-		E0AADC5C21D2DD7700C2B4E5 /* LastVisitDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5B21D2DD7700C2B4E5 /* LastVisitDate.swift */; };
-		E0AADC5D21D2DD7700C2B4E5 /* LastVisitDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5B21D2DD7700C2B4E5 /* LastVisitDate.swift */; };
-		E0AADC5E21D2DD7700C2B4E5 /* LastVisitDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5B21D2DD7700C2B4E5 /* LastVisitDate.swift */; };
+		E0AADC5821D2D9FE00C2B4E5 /* LastVisitTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5721D2D9FE00C2B4E5 /* LastVisitTrack.swift */; };
+		E0AADC5921D2D9FE00C2B4E5 /* LastVisitTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5721D2D9FE00C2B4E5 /* LastVisitTrack.swift */; };
+		E0AADC5A21D2D9FE00C2B4E5 /* LastVisitTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5721D2D9FE00C2B4E5 /* LastVisitTrack.swift */; };
+		E0AADC5C21D2DD7700C2B4E5 /* LastTrackVisited.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5B21D2DD7700C2B4E5 /* LastTrackVisited.swift */; };
+		E0AADC5D21D2DD7700C2B4E5 /* LastTrackVisited.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5B21D2DD7700C2B4E5 /* LastTrackVisited.swift */; };
+		E0AADC5E21D2DD7700C2B4E5 /* LastTrackVisited.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5B21D2DD7700C2B4E5 /* LastTrackVisited.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,8 +137,8 @@
 		E0155FD721CEDBA60041A96C /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		E0155FDB21CF59500041A96C /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		E0AADC5121D2C5BD00C2B4E5 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
-		E0AADC5721D2D9FE00C2B4E5 /* LastVisitDateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastVisitDateModel.swift; sourceTree = "<group>"; };
-		E0AADC5B21D2DD7700C2B4E5 /* LastVisitDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastVisitDate.swift; sourceTree = "<group>"; };
+		E0AADC5721D2D9FE00C2B4E5 /* LastVisitTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastVisitTrack.swift; sourceTree = "<group>"; };
+		E0AADC5B21D2DD7700C2B4E5 /* LastTrackVisited.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTrackVisited.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,7 +276,7 @@
 			children = (
 				E0155FAB21CDEAC60041A96C /* Track.swift */,
 				E0155FD321CEBAAB0041A96C /* RealmTrack.swift */,
-				E0AADC5721D2D9FE00C2B4E5 /* LastVisitDateModel.swift */,
+				E0AADC5721D2D9FE00C2B4E5 /* LastVisitTrack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 				E0155FD721CEDBA60041A96C /* CacheManager.swift */,
 				E0155FA521CDD9430041A96C /* FetchedObjects.swift */,
 				E0155FD121CE554F0041A96C /* TypeConverter.swift */,
-				E0AADC5B21D2DD7700C2B4E5 /* LastVisitDate.swift */,
+				E0AADC5B21D2DD7700C2B4E5 /* LastTrackVisited.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -610,7 +610,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC3A96E921D01CFB00B8DEAC /* SplashScreen.swift in Sources */,
-				E0AADC5821D2D9FE00C2B4E5 /* LastVisitDateModel.swift in Sources */,
+				E0AADC5821D2D9FE00C2B4E5 /* LastVisitTrack.swift in Sources */,
 				E0155FD821CEDBA60041A96C /* CacheManager.swift in Sources */,
 				E0155FD221CE554F0041A96C /* TypeConverter.swift in Sources */,
 				E0155FDC21CF59500041A96C /* ImageDownloader.swift in Sources */,
@@ -626,7 +626,7 @@
 				AC3A96FC21D08C3C00B8DEAC /* DetailScreenController.swift in Sources */,
 				E0155FB921CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */,
 				E0155FC721CE34E90041A96C /* DeviceHelpers++.swift in Sources */,
-				E0AADC5C21D2DD7700C2B4E5 /* LastVisitDate.swift in Sources */,
+				E0AADC5C21D2DD7700C2B4E5 /* LastTrackVisited.swift in Sources */,
 				E0155F7C21CDD6910041A96C /* iTunesSearchSample.xcdatamodeld in Sources */,
 				E0155F7421CDD6910041A96C /* AppDelegate.swift in Sources */,
 			);
@@ -637,7 +637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC3A96F321D02A3B00B8DEAC /* SplashScreen.swift in Sources */,
-				E0AADC5D21D2DD7700C2B4E5 /* LastVisitDate.swift in Sources */,
+				E0AADC5D21D2DD7700C2B4E5 /* LastTrackVisited.swift in Sources */,
 				E0155FBA21CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */,
 				E0155FC821CE34E90041A96C /* DeviceHelpers++.swift in Sources */,
 				E0155FCC21CE35D60041A96C /* BackgroundView.swift in Sources */,
@@ -646,7 +646,7 @@
 				E0155FBF21CE33270041A96C /* HeaderView.swift in Sources */,
 				E0155FD521CEBAAB0041A96C /* RealmTrack.swift in Sources */,
 				E0155FA721CDD9430041A96C /* FetchedObjects.swift in Sources */,
-				E0AADC5921D2D9FE00C2B4E5 /* LastVisitDateModel.swift in Sources */,
+				E0AADC5921D2D9FE00C2B4E5 /* LastVisitTrack.swift in Sources */,
 				E0155FDD21CF59500041A96C /* ImageDownloader.swift in Sources */,
 				AC3A96F521D0555C00B8DEAC /* TypeConverter.swift in Sources */,
 				E0155FD921CEDBA60041A96C /* CacheManager.swift in Sources */,
@@ -663,7 +663,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC3A96F421D02A3C00B8DEAC /* SplashScreen.swift in Sources */,
-				E0AADC5E21D2DD7700C2B4E5 /* LastVisitDate.swift in Sources */,
+				E0AADC5E21D2DD7700C2B4E5 /* LastTrackVisited.swift in Sources */,
 				E0155FBB21CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */,
 				E0155FC921CE34E90041A96C /* DeviceHelpers++.swift in Sources */,
 				E0155FCD21CE35D60041A96C /* BackgroundView.swift in Sources */,
@@ -672,7 +672,7 @@
 				E0155FC021CE33270041A96C /* HeaderView.swift in Sources */,
 				E0155FD621CEBAAB0041A96C /* RealmTrack.swift in Sources */,
 				E0155FA821CDD9430041A96C /* FetchedObjects.swift in Sources */,
-				E0AADC5A21D2D9FE00C2B4E5 /* LastVisitDateModel.swift in Sources */,
+				E0AADC5A21D2D9FE00C2B4E5 /* LastVisitTrack.swift in Sources */,
 				E0155FDE21CF59500041A96C /* ImageDownloader.swift in Sources */,
 				AC3A96F621D0555D00B8DEAC /* TypeConverter.swift in Sources */,
 				E0155FDA21CEDBA60041A96C /* CacheManager.swift in Sources */,

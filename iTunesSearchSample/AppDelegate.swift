@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         window = UIWindow()
         window?.makeKeyAndVisible()
-        let splashScreen = SplashScreenController()
-        window?.rootViewController = splashScreen
+        let mainScreen = MainScreenController()
+        let navMainScreen = UINavigationController(rootViewController: mainScreen)
+        window?.rootViewController = navMainScreen
         return true
     }
 

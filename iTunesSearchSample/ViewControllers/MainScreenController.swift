@@ -29,11 +29,7 @@ class MainScreenController: UIViewController {
     var trackList : RealmSwift.Results<RealmTrack>? {
         didSet{
             DispatchQueue.main.async {
-                //change this to reload [index] later                
-                LastVisitDate.sharedInstance.getDateFromUserDefaults(completion: { (date) in
-                    let splitDate = date.split(separator: " ")
-                    self.headerView.lastVisitDateLbl.text = "Last visit: \(splitDate[0])"
-                })
+                //change this to reload [index] later
                 self.collectionView.reloadData()
             }
         }
@@ -50,9 +46,19 @@ class MainScreenController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkIfRealmIsEmpty()
         navigationController?.isNavigationBarHidden = true
         collectionView.register(MainScreenCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         setupViews()
+    }
+    
+    /// Persist the track name of the last track visited , inside UserDefaults. Also scrolls to last cell selected.
+    override func viewDidAppear(_ animated: Bool) {
+        LastTrackVisited.sharedInstance.getTrackFromUserDefaults { (trackName, trackIndex) in
+            let indexPath = IndexPath(item: trackIndex, section: 0)
+            self.headerView.lastVisitTrackLbl.text = trackName
+            self.collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
+        }
     }
     
     /// Setting up the views in MainScreenController
@@ -71,6 +77,21 @@ class MainScreenController: UIViewController {
     /// Show the Navigation Bar when we push the details view modally.
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    /// If realm DB is empty then load splashScreen else stay here and load data.
+    private func checkIfRealmIsEmpty() {
+        let realmData = CacheManager.sharedInstance.getDataFromDB()
+        if realmData.count == 0 {
+            let splashScreen = SplashScreenController()
+            present(splashScreen, animated: true) {
+                
+            }
+        } else {
+            self.trackList = realmData
+        }
+    
+        
     }
 }
 
@@ -132,6 +153,9 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
         let detailsScreen = DetailScreenController()
         detailsScreen.track = self.trackList?[indexPath.item] ?? RealmTrack()
         navigationController?.pushViewController(detailsScreen, animated: true)
+        guard let trackName = detailsScreen.track.trackName else {return}
+        let index = indexPath.row
+        LastTrackVisited.sharedInstance.setTrackIntoUserDefaults(trackTitle: trackName, trackIndex: index)
     }
 }
 

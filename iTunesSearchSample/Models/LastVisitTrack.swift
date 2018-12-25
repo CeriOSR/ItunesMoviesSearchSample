@@ -1,5 +1,5 @@
 //
-//  LastVisitDateModel.swift
+//  LastVisitTrack.swift
 //  iTunesSearchSample
 //
 //  Created by Rey Cerio on 25/12/2018.
@@ -11,6 +11,7 @@ import Foundation
 //MARK: - Saving the last visit date
 struct defaultsKeys {
     static let keyOne = "firstStringKey"
+    static let keyTwo = "secondStrinKey"
 }
 
 

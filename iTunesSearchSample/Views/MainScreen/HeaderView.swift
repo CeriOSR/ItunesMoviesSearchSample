@@ -19,11 +19,12 @@ class HeaderView: UIView {
         return lbl
     }()
     
-    let lastVisitDateLbl: UILabel = {
+    let lastVisitTrackLbl: UILabel = {
         let lbl = UILabel()
-        lbl.font = lbl.font.withSize(15)
+        lbl.font = lbl.font.withSize(12)
         lbl.textColor = UIColor.white
         lbl.textAlignment = .right
+        lbl.numberOfLines = 0
         return lbl
     }()
     
@@ -45,9 +46,9 @@ class HeaderView: UIView {
     private func setupViews() {
         addSubview(dividerView)
         addSubview(headerLabel)
-        addSubview(lastVisitDateLbl)
+        addSubview(        lastVisitTrackLbl)
         headerLabel.anchor(nil, left: leftAnchor, bottom: dividerView.topAnchor, right: nil, topConstant: 0, leftConstant: 8, bottomConstant: 2, rightConstant: 0, widthConstant: ScreenSize.width * 0.25, heightConstant: ScreenSize.height * 0.07)
-        lastVisitDateLbl.anchor(nil, left: nil, bottom: dividerView.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: ScreenSize.width * 0.5, heightConstant: ScreenSize.height * 0.07)
+        lastVisitTrackLbl.anchor(nil, left: nil, bottom: dividerView.topAnchor, right: rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 8, widthConstant: ScreenSize.width * 0.3, heightConstant: ScreenSize.height * 0.08)
         dividerView.anchor(nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 4, rightConstant: 8, widthConstant: 0, heightConstant: 1)
     }
 }
