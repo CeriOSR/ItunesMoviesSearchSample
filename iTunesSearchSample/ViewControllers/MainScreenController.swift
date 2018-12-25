@@ -26,28 +26,37 @@ class MainScreenController: UIViewController {
         return cv
     }()
     
-    var trackList : RealmSwift.Results<RealmTrack>?
-    var tracks = [Track](){
-        didSet {
+    var trackList : RealmSwift.Results<RealmTrack>? {
+        didSet{
             DispatchQueue.main.async {
                 //change this to reload [index] later
+                print(self.trackList?.count ?? 0)
                 self.collectionView.reloadData()
             }
         }
     }
-    var arrayOfTracks = [[Track]]()
-    var limit = 10
-    var arrayIndex: Int = 0
-    let totalEntries = 50
+    var tracks = [Track](){
+        didSet {
+            DispatchQueue.main.async {
+                //change this to reload [index] later
+                print(self.tracks.count)
+                self.collectionView.reloadData()
+            }
+        }
+    }
+//    var arrayOfTracks = [[Track]]()
+//    var limit = 10
+//    let totalEntries = 50
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         collectionView.register(MainScreenCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         setupViews()
-        print(arrayOfTracks.count)
-        print(arrayOfTracks[1].count)
-        print(tracks.count)
+//        print(arrayOfTracks.count)
+//        print(arrayOfTracks[1].count)
+//        print(tracks.count)
+        print(trackList?.count ?? 0)
     }
     
     /// Setting up the views in MainScreenController
@@ -67,11 +76,6 @@ class MainScreenController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
     }
-    
-    private func addingToArray() {
-        
-    }
-
 }
 
 // Mark:- CollectionView Methods
@@ -81,7 +85,7 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.tracks.count
+        return self.trackList?.count ?? 0
     }
     
     /// Input data into UICollectionViewCell
@@ -111,9 +115,7 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.titleLbl.text = "\(cellTrack.trackName ?? ""), \(cellTrack.artistName ?? "")"
             cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? ""), Price: \(String(describing: price)), Currency: \(cellTrack.currency ?? ""), Release Date: \(cellTrack.releaseDate ?? "")"
             if let urlString = cellTrack.artworkUrl100 {
-                DispatchQueue.main.async {
                     cell.imageView.imageDownloader(urlString: urlString)
-                }
             } else {
                 cell.imageView.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal) //handle this error someother way
             }
@@ -122,7 +124,7 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: ScreenSize.height * 0.2)
+        return CGSize(width: self.view.frame.width, height: ScreenSize.height * 0.18)
     }
     
     /// Modally bring in DetailScreenController so it comes with a back button on the Navigation Bar
@@ -132,24 +134,25 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
         navigationController?.pushViewController(detailsScreen, animated: true)
     }
     
-    /// Pagination method
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        // Bring in more tracks if were not at the last index of tracks
-        if indexPath.item == tracks.count - 1 {
-            if tracks.count < totalEntries {
-                var index = 1
-                limit = indexPath.item + 10
-                while index > limit {
-                    tracks.append(contentsOf: arrayOfTracks[index])
-                    index = index + 1
-                }
-                DispatchQueue.main.async {
-                    collectionView.reloadData()
-                }
-            }
-        }
-        
-    }
+//    /// Pagination method
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        // Bring in more tracks if were not at the last index of tracks
+//        if indexPath.item == tracks.count - 1 {
+//            if tracks.count < totalEntries {
+//                var index = self.tracks.count
+//                limit = index + 10
+//                while index > limit {
+//                    tracks.append(tracks[index])
+//                    index = index + 1
+//                    DispatchQueue.main.async {
+//                        collectionView.reloadData()
+//                    }
+//                }
+//
+//            }
+//        }
+//
+//    }
 }
 
 

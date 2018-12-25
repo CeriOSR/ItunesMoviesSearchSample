@@ -93,36 +93,31 @@ class SplashScreenController: UIViewController {
     
     /// Pre-Fetching data from URL
     private func prefetchDataForMainScreen(results: RealmSwift.Results<RealmTrack>) {
-        if results.count == 0 {
+//        if results.count == 0 {
             FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
                 if tracks.count > 0 && tracks.count > results.count {
-                    self.tracks = tracks
-                    for track in self.tracks {
-                        TypeConverterViewModel.sharedInstance.assigningObjectToRealmObject(track, { (realmTracks) in
-                            CacheManager.sharedInstance.addData(object: realmTracks)
+                    for track in tracks {
+                        TypeConverterViewModel.sharedInstance.assigningObjectToRealmObject(track, { (realmTrack) in
+                            CacheManager.sharedInstance.addData(object: realmTrack)
+                            self.trackList = CacheManager.sharedInstance.getDataFromDB()
                         })
                     }
                 }
             }
-        } else {
-            for rTrack in results {
-                TypeConverterViewModel.sharedInstance.assigningResultsToTracks(rTrack, { (track) in
-                    self.tracks.append(track)
-                })
-            }
-            
-        }
+//        }
+//        else {
+//            for rTrack in results {
+//                TypeConverterViewModel.sharedInstance.assigningResultsToTracks(rTrack, { (track) in
+//                    self.tracks.append(track)
+//                })
+//            }
+//            
+//        }
     }
     
     @objc func loadMainScreen() {
         let mainScreen = MainScreenController()
-        if self.tracks.count != 0 {
-            print(self.tracks.count)
-            let chunckedArray = self.tracks.chunked(into: self.tracks.count / 2)
-            print(chunckedArray.count)
-            mainScreen.arrayOfTracks = chunckedArray
-            mainScreen.tracks = chunckedArray[0]
-        }
+        mainScreen.trackList = self.trackList
         let navMainScreen = UINavigationController(rootViewController: mainScreen)
         self.present(navMainScreen, animated: true, completion: {
         })

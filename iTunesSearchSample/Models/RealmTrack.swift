@@ -14,7 +14,8 @@ class RealmTrack: Object {
     @objc dynamic var kind: String? = nil
     let artistId = RealmOptional<Double>()
     let collectionId = RealmOptional<Double>()
-    let trackId = RealmOptional<Double>()
+//    convert trackId to string
+    @objc dynamic var trackId: String? = nil
     @objc dynamic var artistName: String? = nil
     @objc dynamic var collectionName: String? = nil
     @objc dynamic var trackName: String? = nil
@@ -43,7 +44,7 @@ class RealmTrack: Object {
     let isStreamable = RealmOptional<Bool>()
     
     override static func primaryKey() -> String? {
-        return "artistViewUrl"
+        return "trackId"
     }
 }
 
