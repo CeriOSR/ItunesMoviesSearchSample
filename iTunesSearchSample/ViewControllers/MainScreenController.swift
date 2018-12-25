@@ -130,7 +130,7 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
     /// Modally bring in DetailScreenController so it comes with a back button on the Navigation Bar
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailsScreen = DetailScreenController()
-        detailsScreen.details = self.tracks[indexPath.item]
+        detailsScreen.track = self.trackList?[indexPath.item] ?? RealmTrack()
         navigationController?.pushViewController(detailsScreen, animated: true)
     }
     
