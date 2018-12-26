@@ -8,7 +8,7 @@
 
 import Foundation
 
-//MARK: - Saving the last visit date
+//MARK: - Saving the last visit date, static keys for UserDefaults.
 struct defaultsKeys {
     static let keyOne = "firstStringKey"
     static let keyTwo = "secondStrinKey"
