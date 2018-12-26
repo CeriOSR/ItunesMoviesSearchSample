@@ -34,15 +34,6 @@ class MainScreenController: UIViewController {
             }
         }
     }
-    var tracks = [Track](){
-        didSet {
-            DispatchQueue.main.async {
-                //change this to reload [index] later
-                print(self.tracks.count)
-                self.collectionView.reloadData()
-            }
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,8 +81,6 @@ class MainScreenController: UIViewController {
         } else {
             self.trackList = realmData
         }
-    
-        
     }
 }
 
@@ -108,24 +97,6 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
     /// Input data into UICollectionViewCell, ommited time in the date variable via String().split(separator:) method
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MainScreenCollectionViewCell
-        if self.tracks.count != 0 {
-            let cellTrack = self.tracks[indexPath.item]
-            var price: Float = 0.00
-            if let unwrappedPrice = cellTrack.trackPrice {
-                price = unwrappedPrice
-            }
-            let date = cellTrack.releaseDate
-            let splitDate = date?.split(separator: "T")
-            cell.titleLbl.text = "\(cellTrack.collectionName ?? "") , \(cellTrack.artistName ?? "")"
-            cell.detailsLbl.text = "Genre: \(cellTrack.primaryGenreName ?? ""), Price: $\(String(describing: price)), Currency: \(cellTrack.currency ?? ""), Release Date: \(splitDate?[0] ?? "")"
-            if let urlString = cellTrack.artworkUrl100 {
-                DispatchQueue.main.async {
-                    cell.imageView.imageDownloader(urlString: urlString)
-                }
-            } else {
-                cell.imageView.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal) //handle this error someother way
-            }
-        } else {
             guard let cellTrack = self.trackList?[indexPath.item] else {return cell}
             var price: Float = 0.00
             if let unwrappedPrice = cellTrack.trackPrice.value {
@@ -140,7 +111,6 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
             } else {
                 cell.imageView.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal) //handle this error someother way
             }
-        }
         return cell
     }
     

@@ -15,7 +15,7 @@ class TypeConverter {
     
     static let sharedInstance = TypeConverter()
     
-    /// Converting [Track] to RealmObject (Results<RealmTrack>)
+    /// Converting Track to Realm Object 
 
     func assigningObjectToRealmObject(_ track: Track,_ completion: @escaping (RealmTrack) -> ()){
         

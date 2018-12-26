@@ -18,22 +18,22 @@ class DetailScreenController: UIViewController {
     /// Closure that auto loads the track details into the views.
     var track = RealmTrack() {
         didSet{
-            DispatchQueue.main.async {
-                if let imageUrl = self.track.artworkUrl100,
-                    let trackName = self.track.trackName,
-                    let artistName = self.track.artistName,
-                    let kind = self.track.kind,
-                    let trackCensoredName = self.track.trackCensoredName,
-                    let primaryGenreName = self.track.primaryGenreName,
-                    let previewUrl = self.track.previewUrl,
-                    let collectionName = self.track.collectionName,
-                    let collectionCensoredName = self.track.collectionCensoredName,
-                    let collectionExplicitness = self.track.collectionExplicitness,
-                    let trackExplicitness = self.track.trackExplicitness,
-                    let releaseDate = self.track.releaseDate,
-                    let country = self.track.country,
-                    let currency = self.track.currency,
-                    let isStreamable = self.track.isStreamable.value {
+            if let imageUrl = self.track.artworkUrl100,
+                let trackName = self.track.trackName,
+                let artistName = self.track.artistName,
+                let kind = self.track.kind,
+                let trackCensoredName = self.track.trackCensoredName,
+                let primaryGenreName = self.track.primaryGenreName,
+                let previewUrl = self.track.previewUrl,
+                let collectionName = self.track.collectionName,
+                let collectionCensoredName = self.track.collectionCensoredName,
+                let collectionExplicitness = self.track.collectionExplicitness,
+                let trackExplicitness = self.track.trackExplicitness,
+                let releaseDate = self.track.releaseDate,
+                let country = self.track.country,
+                let currency = self.track.currency,
+                let isStreamable = self.track.isStreamable.value {
+                DispatchQueue.main.async {
                     let splitDate = releaseDate.split(separator: "T")
                     self.detailsView.trackImageView.imageDownloader(urlString: imageUrl)
                     self.detailsView.firstDetailsLbl.text = "\(String(describing: trackName))\n\(String(describing: artistName))\n\(String(describing: kind))\n\(String(describing: trackCensoredName))\n\(String(describing: primaryGenreName))\n\(String(describing: previewUrl))"
