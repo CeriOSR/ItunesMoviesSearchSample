@@ -226,7 +226,7 @@
 		E0155F7221CDD6910041A96C /* iTunesSearchSample */ = {
 			isa = PBXGroup;
 			children = (
-				E0155FD021CE55160041A96C /* ViewModels */,
+				E0155FD021CE55160041A96C /* ViewDataModels */,
 				E0155FC121CE34A60041A96C /* Helpers++ */,
 				E0155FBC21CE32A50041A96C /* Views */,
 				E0155FB321CE07E10041A96C /* CollectionViewCells */,
@@ -317,7 +317,7 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		E0155FD021CE55160041A96C /* ViewModels */ = {
+		E0155FD021CE55160041A96C /* ViewDataModels */ = {
 			isa = PBXGroup;
 			children = (
 				E0155FDB21CF59500041A96C /* ImageDownloader.swift */,
@@ -326,7 +326,7 @@
 				E0155FD121CE554F0041A96C /* TypeConverter.swift */,
 				E0AADC5B21D2DD7700C2B4E5 /* LastTrackVisited.swift */,
 			);
-			path = ViewModels;
+			path = ViewDataModels;
 			sourceTree = "<group>";
 		};
 		E0AADC5021D2C59C00C2B4E5 /* DetailsView */ = {
