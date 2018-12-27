@@ -15,13 +15,11 @@ class LastTrackVisited {
     func getTrackFromUserDefaults(completion: @escaping (String, Int) -> ()) {
         let defaults = UserDefaults.standard
         var title = String()
-        var index = Int()
         if let trackTitle = defaults.string(forKey: defaultsKeys.keyOne) {
             title = trackTitle
         }
         let trackIndex = defaults.integer(forKey: defaultsKeys.keyTwo)
-        index = trackIndex
-        completion(title, index)
+        completion(title, trackIndex)
     }
     
     func setTrackIntoUserDefaults(trackTitle: String, trackIndex: Int) {
