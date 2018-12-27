@@ -25,3 +25,4 @@ Features :
 Pattern:
 
 - Pattern used is MVC. I feel if its a small project with only 1 person working on it. MVC will suffice.
+- I chose to do this programmatically for ease and efficiency. This is btw, a personal opinion.
