@@ -77,6 +77,9 @@
 		E0AADC5C21D2DD7700C2B4E5 /* LastTrackVisited.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5B21D2DD7700C2B4E5 /* LastTrackVisited.swift */; };
 		E0AADC5D21D2DD7700C2B4E5 /* LastTrackVisited.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5B21D2DD7700C2B4E5 /* LastTrackVisited.swift */; };
 		E0AADC5E21D2DD7700C2B4E5 /* LastTrackVisited.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AADC5B21D2DD7700C2B4E5 /* LastTrackVisited.swift */; };
+		E0E5C5F621E11247003BF512 /* ArrayHelper++.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E5C5F521E11247003BF512 /* ArrayHelper++.swift */; };
+		E0E5C5F721E11247003BF512 /* ArrayHelper++.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E5C5F521E11247003BF512 /* ArrayHelper++.swift */; };
+		E0E5C5F821E11247003BF512 /* ArrayHelper++.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E5C5F521E11247003BF512 /* ArrayHelper++.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +142,7 @@
 		E0AADC5121D2C5BD00C2B4E5 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		E0AADC5721D2D9FE00C2B4E5 /* LastVisitTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastVisitTrack.swift; sourceTree = "<group>"; };
 		E0AADC5B21D2DD7700C2B4E5 /* LastTrackVisited.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTrackVisited.swift; sourceTree = "<group>"; };
+		E0E5C5F521E11247003BF512 /* ArrayHelper++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArrayHelper++.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +309,7 @@
 				E0155FC221CE34C80041A96C /* ConstraintHelpers++.swift */,
 				E0155FC621CE34E90041A96C /* DeviceHelpers++.swift */,
 				AC3A96FF21D0AA2000B8DEAC /* ImageScaleHelper++.swift */,
+				E0E5C5F521E11247003BF512 /* ArrayHelper++.swift */,
 			);
 			path = "Helpers++";
 			sourceTree = "<group>";
@@ -628,6 +633,7 @@
 				E0155FC721CE34E90041A96C /* DeviceHelpers++.swift in Sources */,
 				E0AADC5C21D2DD7700C2B4E5 /* LastTrackVisited.swift in Sources */,
 				E0155F7C21CDD6910041A96C /* iTunesSearchSample.xcdatamodeld in Sources */,
+				E0E5C5F621E11247003BF512 /* ArrayHelper++.swift in Sources */,
 				E0155F7421CDD6910041A96C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,6 +645,7 @@
 				AC3A96F321D02A3B00B8DEAC /* SplashScreen.swift in Sources */,
 				E0AADC5D21D2DD7700C2B4E5 /* LastTrackVisited.swift in Sources */,
 				E0155FBA21CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */,
+				E0E5C5F721E11247003BF512 /* ArrayHelper++.swift in Sources */,
 				E0155FC821CE34E90041A96C /* DeviceHelpers++.swift in Sources */,
 				E0155FCC21CE35D60041A96C /* BackgroundView.swift in Sources */,
 				AC3A970121D0AA2000B8DEAC /* ImageScaleHelper++.swift in Sources */,
@@ -665,6 +672,7 @@
 				AC3A96F421D02A3C00B8DEAC /* SplashScreen.swift in Sources */,
 				E0AADC5E21D2DD7700C2B4E5 /* LastTrackVisited.swift in Sources */,
 				E0155FBB21CE094F0041A96C /* MainScreenCollectionViewCell.swift in Sources */,
+				E0E5C5F821E11247003BF512 /* ArrayHelper++.swift in Sources */,
 				E0155FC921CE34E90041A96C /* DeviceHelpers++.swift in Sources */,
 				E0155FCD21CE35D60041A96C /* BackgroundView.swift in Sources */,
 				AC3A970221D0AA2000B8DEAC /* ImageScaleHelper++.swift in Sources */,

@@ -20,6 +20,7 @@ class LastTrackVisited {
         }
         let trackIndex = defaults.integer(forKey: defaultsKeys.keyTwo)
         completion(title, trackIndex)
+        
     }
     
     func setTrackIntoUserDefaults(trackTitle: String, trackIndex: Int) {

@@ -42,7 +42,6 @@ class RealmTrack: Object {
     @objc dynamic var currency: String? = nil
     @objc dynamic var primaryGenreName: String? = nil
     let isStreamable = RealmOptional<Bool>()
-//    let lastVisitDate = Date()
     
     /// Primary Id for the realm objects, converted trackId to string because it started off as Double()
     override static func primaryKey() -> String? {

@@ -25,11 +25,34 @@ class MainScreenController: UIViewController {
         cv.isUserInteractionEnabled = true
         return cv
     }()
+
+    var arrayOfTracksIndex = 0
+    var arrayOfTracksMaxCount = 0
+    var arrayOfTracks = [[Track]]()
     
+    
+    
+    
+    var convertedTracks = [Track]()
     var trackList : RealmSwift.Results<RealmTrack>? {
         didSet{
+            for index in 1...5 {
+                
+            }
+            for i in self.trackList! {
+                TypeConverter.sharedInstance.assigningResultsToTracks(i, { (track) in
+                    self.convertedTracks.append(track)
+                })
+            }
+            self.arrayOfTracks = convertedTracks.chunked(into: 10)
+            arrayOfTracksMaxCount = arrayOfTracks.count
+            self.tracks.append(contentsOf: arrayOfTracks[arrayOfTracksIndex])
+            self.arrayOfTracksIndex += 1
+        }
+    }
+    var tracks = [Track](){
+        didSet {
             DispatchQueue.main.async {
-                //change this to reload [index] later
                 self.collectionView.reloadData()
             }
         }
@@ -37,7 +60,7 @@ class MainScreenController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkIfRealmIsEmpty()        
+        populateTracksFromRealmIfEmpty()
         setupViews()
     }
     
@@ -69,6 +92,12 @@ class MainScreenController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
     }
+    
+    private func populateTracksFromRealmIfEmpty() {
+        if self.trackList?.count == nil {
+            self.trackList = CacheManager.sharedInstance.getDataFromDB()
+        }
+    }
 }
 
 // Mark:- CollectionView Methods
@@ -78,17 +107,17 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let count = self.trackList?.count else { return 0 }
-        return count
+        return self.tracks.count
     }
     
     /// Input data into UICollectionViewCell, ommited time in the date variable via String().split(separator:) method
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MainScreenCollectionViewCell
-            guard let cellTrack = self.trackList?[indexPath.item] else {return cell}
+        if self.tracks.count > 0 {
+            let cellTrack = self.tracks[indexPath.item]
             var price: Float = 0.00
-            if let unwrappedPrice = cellTrack.trackPrice.value {
-                price = Float(unwrappedPrice)
+            if let unwrappedPrice = cellTrack.trackPrice {
+                price = unwrappedPrice
             }
             let date = cellTrack.releaseDate
             let splitDate = date?.split(separator: "T")
@@ -97,8 +126,9 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
             if let urlString = cellTrack.artworkUrl100 {
                     cell.imageView.imageDownloader(urlString: urlString)
             } else {
-                cell.imageView.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal) //handle this error someother way
+                cell.imageView.image = #imageLiteral(resourceName: "fireBackgroundImage").withRenderingMode(.alwaysOriginal)
             }
+        }
         return cell
     }
     
@@ -114,6 +144,27 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
         guard let trackName = detailsScreen.track.trackName else {return}
         let index = indexPath.row
         LastTrackVisited.sharedInstance.setTrackIntoUserDefaults(trackTitle: trackName, trackIndex: index)
+    }
+    
+    /// Pagination method - adding the data to the array when index of cell is displayed.
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        // Bring in more tracks if were not at the last index of tracks
+        if arrayOfTracksIndex <= arrayOfTracksMaxCount - 1{
+            print(indexPath.item)
+            print(self.tracks.count)
+            print(trackList?.count)
+            if indexPath.item == self.tracks.count - 1 {
+                self.perform(#selector(loadMoreDataToCV))
+            }
+        }
+    }
+    
+    @objc func loadMoreDataToCV() {
+        tracks.append(contentsOf: arrayOfTracks[arrayOfTracksIndex])
+        arrayOfTracksIndex += 1
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 }
 

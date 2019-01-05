@@ -100,6 +100,7 @@ class SplashScreenController: UIViewController {
     private func prefetchDataForMainScreen(results: RealmSwift.Results<RealmTrack>) {
         FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
             if tracks.count > 0 && tracks.count > results.count {
+                CacheManager.sharedInstance.deleteAllFromDatabase()
                 for track in tracks {
                     TypeConverter.sharedInstance.assigningObjectToRealmObject(track, { (realmTrack) in
                         CacheManager.sharedInstance.addData(object: realmTrack)

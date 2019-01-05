@@ -22,10 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let realmData = CacheManager.sharedInstance.getDataFromDB()
         if realmData.count > 0 {
             let firstScreen = MainScreenController()
+            firstScreen.trackList = realmData
             let navMainScreen = UINavigationController(rootViewController: firstScreen)
             window?.rootViewController = navMainScreen
         } else {
             let firstScreen = SplashScreenController()
+            LastTrackVisited.sharedInstance.setTrackIntoUserDefaults(trackTitle: "", trackIndex: 0)
             let navMainScreen = UINavigationController(rootViewController: firstScreen)
             window?.rootViewController = navMainScreen
         }
