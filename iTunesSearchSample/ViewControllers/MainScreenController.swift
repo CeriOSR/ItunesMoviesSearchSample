@@ -29,16 +29,9 @@ class MainScreenController: UIViewController {
     var arrayOfTracksIndex = 0
     var arrayOfTracksMaxCount = 0
     var arrayOfTracks = [[Track]]()
-    
-    
-    
-    
     var convertedTracks = [Track]()
     var trackList : RealmSwift.Results<RealmTrack>? {
         didSet{
-            for index in 1...5 {
-                
-            }
             for i in self.trackList! {
                 TypeConverter.sharedInstance.assigningResultsToTracks(i, { (track) in
                     self.convertedTracks.append(track)
@@ -150,9 +143,6 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         // Bring in more tracks if were not at the last index of tracks
         if arrayOfTracksIndex <= arrayOfTracksMaxCount - 1{
-            print(indexPath.item)
-            print(self.tracks.count)
-            print(trackList?.count)
             if indexPath.item == self.tracks.count - 1 {
                 self.perform(#selector(loadMoreDataToCV))
             }
