@@ -37,9 +37,7 @@ class MainScreenController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkIfRealmIsEmpty()
-        navigationController?.isNavigationBarHidden = true
-        collectionView.register(MainScreenCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        checkIfRealmIsEmpty()        
         setupViews()
     }
     
@@ -54,6 +52,8 @@ class MainScreenController: UIViewController {
     
     /// Setting up the views in MainScreenController
     private func setupViews() {
+        navigationController?.isNavigationBarHidden = true
+        collectionView.register(MainScreenCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         view.addSubview(backgroundView)
         view.addSubview(headerView)
         view.addSubview(collectionVContainer)
@@ -69,19 +69,6 @@ class MainScreenController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
     }
-    
-    /// If realm DB is empty then load splashScreen else stay here and load data.
-    private func checkIfRealmIsEmpty() {
-        let realmData = CacheManager.sharedInstance.getDataFromDB()
-        if realmData.count == 0 {
-            let splashScreen = SplashScreenController()
-            present(splashScreen, animated: true) {
-                
-            }
-        } else {
-            self.trackList = realmData
-        }
-    }
 }
 
 // Mark:- CollectionView Methods
@@ -91,7 +78,8 @@ extension MainScreenController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.trackList?.count ?? 0
+        guard let count = self.trackList?.count else { return 0 }
+        return count
     }
     
     /// Input data into UICollectionViewCell, ommited time in the date variable via String().split(separator:) method

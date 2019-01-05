@@ -14,14 +14,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    /// Check if realm is empty, if so display splashscreen and background fetch.
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow()
         window?.makeKeyAndVisible()
-        let mainScreen = MainScreenController()
-        let navMainScreen = UINavigationController(rootViewController: mainScreen)
-        window?.rootViewController = navMainScreen
+        let realmData = CacheManager.sharedInstance.getDataFromDB()
+        if realmData.count > 0 {
+            let firstScreen = MainScreenController()
+            let navMainScreen = UINavigationController(rootViewController: firstScreen)
+            window?.rootViewController = navMainScreen
+        } else {
+            let firstScreen = SplashScreenController()
+            let navMainScreen = UINavigationController(rootViewController: firstScreen)
+            window?.rootViewController = navMainScreen
+        }
+        
         return true
     }
 
