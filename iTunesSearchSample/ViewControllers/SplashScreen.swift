@@ -95,12 +95,13 @@ class SplashScreenController: UIViewController {
         timer = nil
     }
     
-    /// Pre-Fetching data from URL
+    /// Pre-Fetching data from URL if data from URL is more than data from Realm then delete everything from realm and write the fetched data in.
     private func prefetchDataForMainScreen(results: RealmSwift.Results<RealmTrack>) {
         FetchObjectsFromUrl.sharedInstance.fetchObject { (tracks) in
             if tracks.count > 0 && tracks.count > results.count {
                 for track in tracks {
                     TypeConverterViewModel.sharedInstance.assigningObjectToRealmObject(track, { (realmTrack) in
+                        CacheManager.sharedInstance.deleteAllFromDatabase()
                         CacheManager.sharedInstance.addData(object: realmTrack)
                         self.trackList = CacheManager.sharedInstance.getDataFromDB()
                     })

@@ -18,6 +18,7 @@ struct Results: Decodable {
     let resultCount: Int?
     let results: [Track]?
 }
+
 struct Track: Decodable {
     
     private enum CodingKeys: String, CodingKey {
