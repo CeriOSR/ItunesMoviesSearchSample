@@ -19,6 +19,7 @@ Features :
 - Optional bindings to make sure all data is saved to realm and pulled.
       - Some Tracks pulled are missing properties.
 - Modally push the details viewController for ease of navigation. 
+- Added Pagination but Pagination is unneccesary with this little data because AlamoFire runs asynchronously and realm is lazy.
 
 
 
